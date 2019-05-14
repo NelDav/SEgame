@@ -5,35 +5,17 @@ public class Player : RigidBody2D
     [Export] public int maxSpeedRight = 1500;
     [Export] public int maxSpeedLeft = 1500;
 
-    [Export] public int accelRight = 10000;
-    [Export] public int accelLeft = 10000;
+    [Export] public int forceRight = 10000;
+    [Export] public int forceLeft = 10000;
 
     [Export] public int speedJump = 2000;
 
     private Vector2 initPosition;
     private bool jumpNextPhysicsFrame;
-    private bool respawnNextFrame;
 
     public override void _Ready()
     {
         initPosition = Position;
-    }
-
-    public void respawn()
-    {
-        respawnNextFrame = true;
-        GD.Print("HELP ME RESPAWN");
-    }
-
-    public override void _Process(float delta)
-    {
-        base._Process(delta);
-        if (respawnNextFrame)
-        {
-            respawnNextFrame = false;
-            Position = initPosition;
-            LinearVelocity = Vector2.Zero;
-        }
     }
 
     public override void _IntegrateForces(Physics2DDirectBodyState state)
@@ -52,8 +34,8 @@ public class Player : RigidBody2D
         float xAccelFactor = (floorWallInt == -1) ? 0.4f : 1.0f;
 
         // Final x-Velocity is the old x-Velocity multiplied with the slowFactor and added with the velocity from the inputs
-        // The inputs create an acceleration which is converted by the Player Mass and the needed time of this physicsProcess frame into a velocity
-        Vector2 finalVel = new Vector2(xSlowFactor, 1) * state.GetLinearVelocity() + xAccelFactor * getInputAccelLeftRight() * state.GetInverseMass() * GetPhysicsProcessDeltaTime();
+        // The inputs create an force which is converted by the Player Mass and the needed time of this physicsProcess frame into a velocity
+        Vector2 finalVel = new Vector2(xSlowFactor, 1) * state.GetLinearVelocity() + xAccelFactor * getInputForceLeftRight() * state.GetInverseMass() * GetPhysicsProcessDeltaTime();
 
         // Clamp the final x-Velocity to the defined max Speeds. 
         // Maybe use the old x-Velocity multiplied with the slowFactor, to allow higher x-Velocities for the player from other sources
@@ -106,20 +88,20 @@ public class Player : RigidBody2D
     }
 
     // Get the input forces of Left and Right movement
-    private Vector2 getInputAccelLeftRight()
+    private Vector2 getInputForceLeftRight()
     {
-        Vector2 accel = Vector2.Zero;
+        Vector2 force = Vector2.Zero;
 
         if (Input.IsActionPressed("game_right"))
         {
-            accel.x += accelLeft;
+            force.x += forceLeft;
         }
         if (Input.IsActionPressed("game_left"))
         {
-            accel.x -= accelRight;
+            force.x -= forceRight;
         }
 
-        return accel;
+        return force;
     }
 
     // Get the jump velocity. The direction is the perpendicular bisector of the surface normal and the up vector

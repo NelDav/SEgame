@@ -1,6 +1,0 @@
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/obj/Tools/SEProjekt.csprojAssemblyReference.cache
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/obj/Tools/SEProjekt.csproj.CoreCompileInputs.cache
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/bin/Tools/SEProjekt.dll
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/bin/Tools/SEProjekt.pdb
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/obj/Tools/SEProjekt.dll
-/media/Data/mickm/GodotProjects/SeProject/godot/.mono/temp/obj/Tools/SEProjekt.pdb
