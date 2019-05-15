@@ -17,5 +17,5 @@ collision_layer = 2
 physics_material_override = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TestBlock/StaticBody2D"]
-polygon = PoolVector2Array( -25, -25.0014, -25, 24.9986, 25, 24.9986, 25, -25.0014 )
+polygon = PoolVector2Array( -25, -24.9999, -25, 24.9985, 25, 24.9985, 25, -24.9999 )
 
