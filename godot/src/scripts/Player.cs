@@ -31,6 +31,23 @@ public class Player : RigidBody2D
         //*************************************************
         // Left Right (x-Direction) Movement
         //*************************************************
+        Vector2 finalVel = addLeftRightMovementToStateVelocity(state, floorWallInt);
+
+        //*************************************************
+        // Gravity
+        //*************************************************
+        finalVel = addGravityToVelocity(state, finalVel, floorWallInt);
+
+        //*************************************************
+        // Jump Movement
+        //*************************************************
+        finalVel = addJumpEventToVelocity(state, finalVel, floorWallInt);
+
+        state.SetLinearVelocity(finalVel);
+    }
+
+    private Vector2 addLeftRightMovementToStateVelocity(Physics2DDirectBodyState state, int floorWallInt)
+    {
 
         // Player will be slowed more if he touches a floor or wall, smaller factor more slowing
         float xSlowFactor = (floorWallInt == -1) ? 0.98f : 0.85f;
@@ -47,18 +64,7 @@ public class Player : RigidBody2D
             Mathf.Min(-maxSpeedLeft, xSlowFactor * state.GetLinearVelocity().x),
             Mathf.Max(maxSpeedRight, xSlowFactor * state.GetLinearVelocity().x));
 
-
-        //*************************************************
-        // Gravity
-        //*************************************************
-        finalVel = addGravityToVelocity(state, finalVel, floorWallInt);
-
-        //*************************************************
-        // Jump Movement
-        //*************************************************
-        finalVel = addJumpEventToVelocity(state, finalVel, floorWallInt);
-
-        state.SetLinearVelocity(finalVel);
+        return finalVel;
     }
 
     private Vector2 addGravityToVelocity(Physics2DDirectBodyState state, Vector2 inputVelocity, int floorWallInt)
