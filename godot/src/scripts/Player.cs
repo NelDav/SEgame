@@ -17,6 +17,11 @@ public class Player : RigidBody2D
     private int physicFramesSinceJumpEvent;
     private bool wantToJump;
 
+    // Non physical data
+
+    //health Values: 0-100. Infinity health: -1.
+    private double health = 100;
+
     public override void _Ready()
     {
         initPosition = Position;
@@ -161,5 +166,29 @@ public class Player : RigidBody2D
             return Vector2.Zero;
         }
         return jumpDirection.Normalized() * speedJump;
+    }
+
+    public double getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth (double value)
+    {
+        health = value;
+    }
+
+    public void getDamage(double damage)
+    {
+        if (health <= 0)
+        {
+            return;
+        }
+        health -= damage;
+        if (health <= 0)
+        {
+            health = 0;
+            // Player is death.
+        }
     }
 }
