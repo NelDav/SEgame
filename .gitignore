@@ -12,6 +12,9 @@ ehthumbs.db
 Thumbs.db
 *.lnk
 *.import
-godot/.vs
-godot/.mono/temp
-/.vs
+*.tres
+godot/.vs/*
+godot/.mono/*
+godot/mono/*
+godot/.import/*
+/.vs/*
