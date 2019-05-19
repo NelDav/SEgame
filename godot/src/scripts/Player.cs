@@ -1,5 +1,14 @@
 using Godot;
 
+/** 
+ * This class discripe the player node.
+ *
+ * It handels the physics of the figure and implement the
+ * movemet operations to control the player by keyboard.
+ * This class includes also the health points of the figure.
+ *
+ * @author MichaelR, MariusS
+ */
 public class Player : RigidBody2D
 {
     [Export] public int maxSpeedRight = 1500;
