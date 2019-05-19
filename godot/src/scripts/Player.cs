@@ -197,7 +197,7 @@ public class Player : RigidBody2D
         if (health <= 0)
         {
             health = 0;
-            // Player is death.
+            // Player is dead.
         }
     }
 }
