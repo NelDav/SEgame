@@ -13,4 +13,4 @@ Thumbs.db
 *.lnk
 *.import
 godot/.vs
-godot/.mono/temp
+godot/.mono
