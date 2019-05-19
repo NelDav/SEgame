@@ -1,8 +1,14 @@
 using Godot;
 using System;
 
-abstract public class Bullet : RigidBody2D
+
+public class StandardtBullet : Bullet
 {
+    public StandardtBullet(Vector2 position, double direction, double momentum)
+    {
+        SetPosition(position);
+    }
+
     // Declare member variables here. Examples:
     // private int a = 2;
     // private string b = "text";
