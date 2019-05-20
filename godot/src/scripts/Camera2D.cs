@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using CustomExtensions;
 
 public class Camera2D : Godot.Camera2D
 {
@@ -18,8 +17,7 @@ public class Camera2D : Godot.Camera2D
 
     public override void _Ready()
     {
-        currentPerspective = CameraPerspective.FOLLOW_PLAYER;
-        this.MakeCurrent();
+        TransitionToPerspective(CameraPerspective.FOLLOW_PLAYER);
     }
 
     public override void _Process(float delta)
@@ -28,9 +26,25 @@ public class Camera2D : Godot.Camera2D
         {
             transitionElapsed += delta;
 
-            Transform2D targetTransform = transitionTargetTransform.Transform;
+            Vector2 screenSize = GetViewport().Size;
+
+            Transform2D targetTransform = transitionTargetTransform.GlobalTransform;
+
+            float screenAspectRatio = screenSize.Aspect();
+            if (screenAspectRatio > targetTransform.Scale.Aspect())
+            {
+                targetTransform.Scale = new Vector2(targetTransform.Scale.y * screenAspectRatio, targetTransform.Scale.y);
+            }
+            else
+            {
+                targetTransform.Scale = new Vector2(targetTransform.Scale.x, targetTransform.Scale.x * (1 / screenAspectRatio));
+            }
+            targetTransform.Scale = screenSize / targetTransform.Scale;
+
             targetTransform.origin *= Vector2.NegOne;
-            targetTransform.origin += new Vector2(GetViewport().Size.Scale(0.5f));
+            targetTransform.origin *= targetTransform.Scale;
+            targetTransform.origin += screenSize * 0.5f;
+
             GetViewport().SetCanvasTransform(GetViewport().GetCanvasTransform().InterpolateWith(targetTransform, transitionElapsed / TRANSITION_TIME));
             
             if (transitionElapsed >= TRANSITION_TIME)
@@ -74,7 +88,7 @@ public class Camera2D : Godot.Camera2D
                 transitionTargetTransform = (Node2D)GetTree().GetRoot().GetNode("root/MapScene/Extents");
                 break;
             case CameraPerspective.FOLLOW_PLAYER:
-                transitionTargetTransform = (Node2D)this.GetParent();
+                transitionTargetTransform = (Node2D)this;
                 break;
         }
 
@@ -87,6 +101,7 @@ public class Camera2D : Godot.Camera2D
         {
             case CameraPerspective.FOLLOW_PLAYER:
                 this.Align();
+                this.Zoom = new Vector2(1 / GetViewport().GetCanvasTransform().Scale.x, 1 / GetViewport().GetCanvasTransform().Scale.y);
                 this.MakeCurrent();
                 break;
         }
