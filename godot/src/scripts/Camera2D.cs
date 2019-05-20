@@ -17,6 +17,10 @@ public class Camera2D : Godot.Camera2D
 
     public override void _Ready()
     {
+        GetTree().GetRoot().Connect("size_changed", this, "RefreshPerspective");
+
+        this.ClearCurrent();
+        currentPerspective = CameraPerspective.OVERVIEW;
         TransitionToPerspective(CameraPerspective.FOLLOW_PLAYER);
     }
 
@@ -70,6 +74,14 @@ public class Camera2D : Godot.Camera2D
         }
 
         base._Input(@event);
+    }
+
+    public void RefreshPerspective()
+    {
+        if (currentPerspective != CameraPerspective.TRANSITION)
+        {
+            TransitionToPerspective(currentPerspective);
+        }
     }
 
     public void TransitionToPerspective(CameraPerspective targetPerspective)
