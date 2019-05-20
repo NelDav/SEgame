@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="SEProjekt"
-run/main_scene="res://src/scenes/InGameScene.scn"
+run/main_scene="res://src/scenes/menus/StartMenuScene.tscn"
 config/icon="res://icon.png"
 
 [input]

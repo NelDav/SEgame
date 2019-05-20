@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\scripts\menus\OptionsMenuButtons.cs" />
+    <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />
+    <Compile Include="src\scripts\menus\StartMenuButtons.cs" />
     <Compile Include="src\scripts\Player.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
   </ItemGroup>
