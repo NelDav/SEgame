@@ -28,7 +28,7 @@ public class StartGameMenuButtons : VBoxContainer
 		private void _on_StartGame_pressed()
 		{
 		    GD.Print("Start Game!");
-		    GetTree().ChangeScene("res://src/scenes/InGameScene.scn");
+		    GetTree().ChangeScene("res://src/scenes/InGameScene.tscn");
 		}
 
 }

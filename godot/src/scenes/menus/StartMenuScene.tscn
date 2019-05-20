@@ -42,7 +42,7 @@ resizable = true
 dialog_text = "Are you sure to quit the game? 
 Click OK to quit, cancel to return to the Start Menu."
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="MenuName" type="RichTextLabel" parent="."]
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 250.0
