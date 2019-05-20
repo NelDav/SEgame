@@ -54,7 +54,6 @@
     <Compile Include="src\scripts\Player.cs" />
     <Compile Include="src\scripts\util\CameraPerspective.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
-    <Compile Include="src\scripts\util\Vector2Extension.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\scenes\maps\" />
