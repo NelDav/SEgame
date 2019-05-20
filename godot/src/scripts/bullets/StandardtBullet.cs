@@ -1,13 +1,11 @@
 using Godot;
-using System;
-
 
 public class StandardtBullet : Bullet
 {
-    public StandardtBullet(Vector2 position, double direction, double momentum)
+    /*public StandardtBullet(Vector2 position, double direction, double momentum)
     {
-        SetPosition(position);
-    }
+        //SetPosition(position);
+    }*/
 
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -16,7 +14,7 @@ public class StandardtBullet : Bullet
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        SetLinearVelocity(new Vector2(1000, 50));
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
