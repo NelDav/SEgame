@@ -5,7 +5,9 @@ using Godot;
 /// </summary>
 public class StandardtBullet : Bullet
 {
-    // Called when the node enters the scene tree for the first time.
+    /// <summary>
+    /// Called when the node enters the scene tree for the first time.
+    /// </summary>
     public override void _Ready()
     {
         //Set bullet type specific values
@@ -15,7 +17,9 @@ public class StandardtBullet : Bullet
         base._Ready();
     }
 
-    //The animation, which is played if the bullet collides
+    /// <summary>
+    /// The animation, which is played if the bullet collides
+    /// </summary>
     public override void collisionAnimation()
     {
         GD.Print("collide!");
