@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/scripts/menus/StartMenuButtons.cs" type="Script" id=1]
+
+[node name="StartMenuScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="StartMenuButtons" type="VBoxContainer" parent="."]
+margin_left = 281.294
+margin_top = 3.70123
+margin_right = 741.294
+margin_bottom = 411.701
+script = ExtResource( 1 )
+quitDialog = NodePath("Quit/myQuitDialog")
+
+[node name="StartGame" type="Button" parent="StartMenuButtons"]
+margin_right = 460.0
+margin_bottom = 133.0
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="Options" type="Button" parent="StartMenuButtons"]
+margin_top = 137.0
+margin_right = 460.0
+margin_bottom = 270.0
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Quit" type="Button" parent="StartMenuButtons"]
+margin_top = 274.0
+margin_right = 460.0
+margin_bottom = 407.0
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="myQuitDialog" type="ConfirmationDialog" parent="StartMenuButtons/Quit"]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "Quit game"
+resizable = true
+dialog_text = "Are you sure to quit the game? 
+Click OK to quit, cancel to return to the Start Menu."
+
+[node name="MenuName" type="RichTextLabel" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 100.0
+text = "Start Menu"
+
+[connection signal="pressed" from="StartMenuButtons/StartGame" to="StartMenuButtons" method="_on_StartGame_pressed"]
+[connection signal="pressed" from="StartMenuButtons/Options" to="StartMenuButtons" method="_on_Options_pressed"]
+[connection signal="pressed" from="StartMenuButtons/Quit" to="StartMenuButtons" method="_on_Quit_pressed"]
+[connection signal="confirmed" from="StartMenuButtons/Quit/myQuitDialog" to="StartMenuButtons" method="_on_myQuitDialog_confirmed"]

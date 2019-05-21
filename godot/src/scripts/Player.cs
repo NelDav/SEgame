@@ -1,5 +1,14 @@
 using Godot;
 
+/** 
+ * This class discripe the player node.
+ *
+ * It handels the physics of the figure and implement the
+ * movemet operations to control the player by keyboard.
+ * This class includes also the health points of the figure.
+ *
+ * @author MichaelR, MariusS
+ */
 public class Player : RigidBody2D
 {
     [Export] public int maxSpeedRight = 1500;
@@ -16,6 +25,11 @@ public class Player : RigidBody2D
     private Vector2 initPosition;
     private int physicFramesSinceJumpEvent;
     private bool wantToJump;
+
+    // Non physical data
+
+    //health Values: 0-100. Infinity health: -1.
+    private double health = 100;
 
     public override void _Ready()
     {
@@ -161,5 +175,29 @@ public class Player : RigidBody2D
             return Vector2.Zero;
         }
         return jumpDirection.Normalized() * speedJump;
+    }
+
+    public double getHealth()
+    {
+        return health;
+    }
+
+    public void setHealth (double value)
+    {
+        health = value;
+    }
+
+    public void getDamage(double damage)
+    {
+        if (health <= 0)
+        {
+            return;
+        }
+        health -= damage;
+        if (health <= 0)
+        {
+            health = 0;
+            // Player is dead.
+        }
     }
 }
