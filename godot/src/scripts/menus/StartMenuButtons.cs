@@ -18,20 +18,20 @@ public class StartMenuButtons : VBoxContainer
 
     private void _on_StartGame_pressed()
     {
-	    GD.Print("Start Game!");
+        GD.Print("Start Game!");
         GetTree().ChangeScene("res://src/scenes/menus/StartGameMenuScene.tscn");
     }
 
     private void _on_Options_pressed()
     {
-	    GD.Print("Options!");
+        GD.Print("Options!");
         GetTree().ChangeScene("res://src/scenes/menus/OptionsMenuScene.tscn");
     }
 
     private void _on_Quit_pressed()
     {
         GD.Print("Quit? Popup");
-		// open PopUp Dialog (size: 300, 100)
+        // open PopUp Dialog (size: 300, 100)
         myQuitDialog.PopupCentered(new Vector2(300,100)); 
     }
 
