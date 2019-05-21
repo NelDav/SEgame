@@ -55,7 +55,7 @@
     <Compile Include="src\scripts\bullets\StandardtBullet.cs" />
     <Compile Include="src\scripts\DebugTool.cs" />
     <Compile Include="src\scripts\Player.cs" />
-    <Compile Include="src\scripts\root.cs" />
+    <Compile Include="src\scripts\Root.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
   </ItemGroup>
   <ItemGroup>
