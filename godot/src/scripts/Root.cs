@@ -6,7 +6,7 @@ public class Root : Node2D
     public override void _Ready()
     {
         //Connecting the Shoot signal with the on_Player_Shoot handler.
-        GetNode("Player").Connect("shoot", this, nameof(on_Player_Shoot));
+        GetNode("StandardWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
     }
 
     /// <summary>
@@ -17,6 +17,7 @@ public class Root : Node2D
     /// <param name="direction">The rotation of the bullet</param>
     public void on_Player_Shoot(PackedScene bullet, Vector2 location, float direction)
     {
+        GD.Print("shot bullet");
         Bullet bulletInstance = (Bullet)bullet.Instance();
         bulletInstance.SetPosition(location);
         bulletInstance.LinearVelocity = bulletInstance.LinearVelocity.Rotated(direction);

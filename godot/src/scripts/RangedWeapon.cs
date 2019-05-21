@@ -5,7 +5,7 @@ using System;
 abstract public class RangedWeapon : Weapon
 {
 
-    [Signal] delegate void Shoot(PackedScene bullet, Vector2 location, float direction);
+    [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
     private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardtBullet.tscn") as PackedScene;
 
     public override void _Input(InputEvent @event)
@@ -22,7 +22,7 @@ abstract public class RangedWeapon : Weapon
                 Transform2D transform = GetTransform();
                 GD.Print(transform.Translated(offset));
 
-                EmitSignal(nameof(Shoot), bulletscene, Position, Rotation); 
+                EmitSignal(nameof(shoot), bulletscene, Position, Rotation); 
             }
         }
     }
