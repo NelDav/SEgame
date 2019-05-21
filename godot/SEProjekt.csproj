@@ -54,6 +54,8 @@
     <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartMenuButtons.cs" />
     <Compile Include="src\scripts\Player.cs" />
+    <Compile Include="src\scripts\PlayerCamera.cs" />
+    <Compile Include="src\scripts\util\CameraPerspective.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
   </ItemGroup>
   <ItemGroup>
