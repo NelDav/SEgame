@@ -17,11 +17,10 @@ public class Root : Node2D
     /// <param name="direction">The rotation of the bullet</param>
     public void on_Player_Shoot(PackedScene bullet, Vector2 location, float direction)
     {
-        GD.Print("shot bullet");
         Bullet bulletInstance = (Bullet)bullet.Instance();
         bulletInstance.SetPosition(location);
-        bulletInstance.LinearVelocity = bulletInstance.LinearVelocity.Rotated(direction);
+        bulletInstance.SetRotation(direction);
+        bulletInstance.setShootDirection(direction);
         AddChild(bulletInstance);
-        //bulletInstance.Velocity = bulletInstance.Velocity.Rotated(direction);
     }
 }

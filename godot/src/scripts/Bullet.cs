@@ -13,6 +13,8 @@ abstract public class Bullet : RigidBody2D
         SetContactMonitor(true);
         SetMaxContactsReported(1);
         Connect("body_entered", this, nameof(onCollision));
+
+        SetGravityScale(10);
     }
 
     /// <summary>
@@ -42,6 +44,12 @@ abstract public class Bullet : RigidBody2D
     /// The Animation wich should be shown, if a bullet collide.
     /// </summary>
     public abstract void collisionAnimation();
+
+    /// <summary>
+    /// To defines the direction, where the bullet is fired to
+    /// </summary>
+    /// <param name="direction"></param>
+    public abstract void setShootDirection(float direction);
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
