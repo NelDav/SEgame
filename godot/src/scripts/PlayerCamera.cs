@@ -10,6 +10,8 @@ using System;
 /// </summary>
 public class PlayerCamera : Godot.Camera2D
 {
+    [Export] public string ExtentsPath;
+
     private CameraPerspective currentPerspective;
 
     private const float TRANSITION_TIME = 1;
@@ -103,7 +105,7 @@ public class PlayerCamera : Godot.Camera2D
         switch (targetPerspective)
         {
             case CameraPerspective.OVERVIEW:
-                transitionTargetTransform = (Node2D)GetTree().GetRoot().GetNode("root/MapScene/Extents");
+                transitionTargetTransform = (Node2D)GetTree().GetRoot().GetNode(ExtentsPath);
                 break;
             case CameraPerspective.FOLLOW_PLAYER:
                 transitionTargetTransform = (Node2D)this;
