@@ -1,5 +1,9 @@
 using Godot;
 
+// Options Menu GUI
+// This class contains the user interface for the Options Menu.
+// It holds buttons to navigate between Menus
+
 public class OptionsMenuButtons : VBoxContainer
 {
     public override void _Ready()
