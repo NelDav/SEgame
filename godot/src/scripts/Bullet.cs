@@ -1,5 +1,8 @@
 using Godot;
 
+/// <summary>
+/// The base class of all bullets
+/// </summary>
 abstract public class Bullet : RigidBody2D
 { 
     // Called when the node enters the scene tree for the first time.
@@ -13,8 +16,10 @@ abstract public class Bullet : RigidBody2D
     //Detects, if the bullet collide with something
     private string onCollision(Node body)
     {
-        GD.Print("col");
+        //creates the collision animation;
         collisionAnimation();
+
+        //delte bullet
         GetParent().RemoveChild(this);
 
         //Return the players name, if the bullet collide witha player.
