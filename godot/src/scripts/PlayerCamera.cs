@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Camera2D : Godot.Camera2D
+public class PlayerCamera : Godot.Camera2D
 {
     private CameraPerspective currentPerspective;
 
