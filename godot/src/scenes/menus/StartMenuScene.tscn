@@ -30,7 +30,7 @@ text = "Options"
 [node name="Quit" type="Button" parent="StartMenuButtons"]
 margin_top = 274.0
 margin_right = 460.0
-margin_bottom = 408.0
+margin_bottom = 407.0
 size_flags_vertical = 3
 text = "Quit"
 
