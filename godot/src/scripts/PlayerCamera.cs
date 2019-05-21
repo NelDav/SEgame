@@ -1,6 +1,13 @@
 using Godot;
 using System;
 
+/// <summary>
+/// A Camera that can switch between a player-following and an overview perspective.
+///
+/// For the player-following perspective a Camera2D Node is used.
+/// For the overview perspective the extents of the current map have to be defined
+/// using the Transform of an empty Node called "Extents".
+/// </summary>
 public class PlayerCamera : Godot.Camera2D
 {
     private CameraPerspective currentPerspective;
@@ -62,7 +69,6 @@ public class PlayerCamera : Godot.Camera2D
     {
         if (@event.IsActionPressed("game_switch_camera"))
         {
-            //TODO Handle TRANSITION case
             if (currentPerspective == CameraPerspective.FOLLOW_PLAYER)
             {
                 TransitionToPerspective(CameraPerspective.OVERVIEW);
