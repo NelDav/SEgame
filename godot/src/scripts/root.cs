@@ -2,22 +2,19 @@ using Godot;
 
 public class root : Node2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        GetNode("Player").Connect("Shoot", this, nameof(on_Player_Shoot));
+        //Connecting the Shoot signal with the on_Player_Shoot handler.
+        GetNode("Player").Connect("shoot", this, nameof(on_Player_Shoot));
     }
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
-
+    /// <summary>
+    /// Handler of the Shoot signal. Creating a bullet.
+    /// </summary>
+    /// <param name="bullet">The bullet, wich should be created</param>
+    /// <param name="location">The possiton, whre the bullet should spawn</param>
+    /// <param name="direction">The rotation of the bullet</param>
     public void on_Player_Shoot(PackedScene bullet, Vector2 location, float direction)
     {
         Bullet bulletInstance = (Bullet)bullet.Instance();
