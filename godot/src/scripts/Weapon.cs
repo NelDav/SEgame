@@ -7,8 +7,7 @@ abstract public class Weapon : Node2D
 
     public override void _Ready()
     {
-        // TODO: Remove hardcoded Player
-        player = (Godot.RigidBody2D)GetNode("../Player");
+        player = (Godot.RigidBody2D)GetParent();
     }
 
     public abstract void setFlip(bool flip);
@@ -17,6 +16,7 @@ abstract public class Weapon : Node2D
     {
         if (player == null)
             return;
-        SetPosition(player.GetPosition());
+        // TODO: Why do we need to set the global position?
+        SetGlobalPosition(player.GetGlobalPosition());
     }
 }

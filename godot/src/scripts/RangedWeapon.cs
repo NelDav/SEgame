@@ -5,9 +5,6 @@ using System;
 abstract public class RangedWeapon : Weapon
 {
 
-    [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
-    private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardtBullet.tscn") as PackedScene;
-
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
@@ -17,15 +14,18 @@ abstract public class RangedWeapon : Weapon
             if (mouseButton.ButtonIndex == (int)ButtonList.Left && mouseButton.Pressed)
             {
                 // TODO: calculate offset from sprite image
-                Vector2 offset = new Vector2(40, 1);
-                Vector2 pos = GetPosition();
-                Transform2D transform = GetTransform();
-                GD.Print(transform.Translated(offset));
+                int offset = 80;
+                Vector2 pos = GetGlobalPosition();
+                Vector2 norm = new Vector2((float)Math.Cos(Rotation), (float)Math.Sin(Rotation));
+                Vector2 res = pos + norm * offset;
 
-                EmitSignal(nameof(shoot), bulletscene, Position, Rotation); 
+
+                shootBullet(res, Rotation);
             }
         }
     }
+
+    public abstract void shootBullet(Vector2 position, float rotation);
 
     public override void _PhysicsProcess(float delta)
     {
