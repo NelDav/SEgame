@@ -6,7 +6,7 @@ public class Root : Node2D
     public override void _Ready()
     {
         //Connecting the Shoot signal with the on_Player_Shoot handler.
-        GetNode("StandardWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
+        GetNode("Player/StandardWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
     }
 
     /// <summary>
