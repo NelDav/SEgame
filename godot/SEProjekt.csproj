@@ -51,7 +51,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\scripts\Player.cs" />
+    <Compile Include="src\scripts\RangedWeapon.cs" />
+    <Compile Include="src\scripts\StandardWeapon.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
+    <Compile Include="src\scripts\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\scenes\maps\" />
