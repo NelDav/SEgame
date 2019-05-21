@@ -1,17 +1,35 @@
 using Godot;
-using System;
 
 abstract public class Bullet : RigidBody2D
-{
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
+{ 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        SetContactMonitor(true);
+        SetMaxContactsReported(1);
+        SetCollisionLayer(LayerNames.Physics2D.floorWall);
+        Connect("body_entered", this, nameof(onCollision));
     }
+
+    //Detects, if the bullet collide with something
+    private string onCollision(Node body)
+    {
+        GD.Print("col");
+        collisionAnimation();
+        GetParent().RemoveChild(this);
+
+        //Return the players name, if the bullet collide witha player.
+        if (false)
+        {
+
+        }
+
+        return "";
+    }
+
+
+    //The Animation wich should be shown, if a bullet collide.
+    public abstract void collisionAnimation();
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)

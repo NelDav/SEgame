@@ -9,7 +9,7 @@ public class root : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        GetNode("Player").Connect("Shoot", this, nameof(_on_Player_Shoot));
+        GetNode("Player").Connect("Shoot", this, nameof(on_Player_Shoot));
     }
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,9 +18,8 @@ public class root : Node2D
     //      
     //  }
 
-    public void _on_Player_Shoot(PackedScene bullet, Vector2 location, float direction)
+    public void on_Player_Shoot(PackedScene bullet, Vector2 location, float direction)
     {
-        GD.Print("Test");
         Bullet bulletInstance = (Bullet)bullet.Instance();
         bulletInstance.SetPosition(location);
         bulletInstance.LinearVelocity = bulletInstance.LinearVelocity.Rotated(direction);
