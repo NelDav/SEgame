@@ -7,7 +7,6 @@ abstract public class Bullet : RigidBody2D
     {
         SetContactMonitor(true);
         SetMaxContactsReported(1);
-        SetCollisionLayer(LayerNames.Physics2D.floorWall);
         Connect("body_entered", this, nameof(onCollision));
     }
 
