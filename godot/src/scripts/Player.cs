@@ -29,11 +29,28 @@ public class Player : RigidBody2D
     // Non physical data
 
     //health Values: 0-100. Infinity health: -1.
-    private double health = 100;
+    private double _health; //this is just a storage variable, use Health instead
+    public double Health
+    {
+        get => _health;
+        set
+        {
+            _health = value;
+            //sends an signal about
+            EmitSignal(nameof(HealthChangeSignal), Health);
+        }
+    }
+
+    //signals to notify nodes about value changes
+    //example: health value changes for OverlayScene
+    [Signal]
+    public delegate void HealthChangeSignal(int health);
 
     public override void _Ready()
     {
         initPosition = Position;
+        //initializing health value
+        Health = 100;
     }
 
     public override void _IntegrateForces(Physics2DDirectBodyState state)
@@ -98,7 +115,7 @@ public class Player : RigidBody2D
     private Vector2 addJumpEventToVelocity(Physics2DDirectBodyState state, Vector2 inputVelocity, int floorWallInt)
     {
         // After a while the player doesn't want to jump anymore
-        if(physicFramesSinceJumpEvent > physicFramesForJump)
+        if (physicFramesSinceJumpEvent > physicFramesForJump)
         {
             wantToJump = false;
         }
@@ -111,7 +128,6 @@ public class Player : RigidBody2D
             inputVelocity += getJumpVelocityFromFloorWallNormal(state.GetContactLocalNormal(floorWallInt));
             wantToJump = false;
         }
-
         return inputVelocity;
 
     }
@@ -177,26 +193,16 @@ public class Player : RigidBody2D
         return jumpDirection.Normalized() * speedJump;
     }
 
-    public double getHealth()
-    {
-        return health;
-    }
-
-    public void setHealth (double value)
-    {
-        health = value;
-    }
-
     public void getDamage(double damage)
     {
-        if (health <= 0)
+        if (Health <= 0)
         {
             return;
         }
-        health -= damage;
-        if (health <= 0)
+        Health -= damage;
+        if (Health <= 0)
         {
-            health = 0;
+            Health = 0;
             // Player is dead.
         }
     }

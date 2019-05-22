@@ -1,4 +1,80 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="OverlayScene" type="Node2D"]
+[ext_resource path="res://src/scripts/OverlayScene.cs" type="Script" id=1]
+[ext_resource path="res://media/textures/overlay_background.png" type="Texture" id=2]
+[ext_resource path="res://media/textures/overlay_hp.png" type="Texture" id=3]
 
+[node name="OverlayScene" type="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 20.0
+margin_bottom = 20.0
+script = ExtResource( 1 )
+
+[node name="Columns" type="HBoxContainer" parent="."]
+margin_right = 204.0
+margin_bottom = 40.0
+
+[node name="HealthContainer" type="MarginContainer" parent="Columns"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Background" type="NinePatchRect" parent="Columns/HealthContainer"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 2 )
+
+[node name="Column" type="HBoxContainer" parent="Columns/HealthContainer/Background"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Title" type="TextureRect" parent="Columns/HealthContainer/Background/Column"]
+margin_right = 50.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 50, 40 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 7
+
+[node name="Number" type="Label" parent="Columns/HealthContainer/Background/Column"]
+margin_left = 54.0
+margin_right = 100.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "10
+"
+
+[node name="AmmoContainer" type="MarginContainer" parent="Columns"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 40.0
+
+[node name="Background" type="NinePatchRect" parent="Columns/AmmoContainer"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 2 )
+
+[node name="Column" type="HBoxContainer" parent="Columns/AmmoContainer/Background"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Title" type="TextureRect" parent="Columns/AmmoContainer/Background/Column"]
+margin_right = 48.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 20, 20 )
+size_flags_horizontal = 3
+expand = true
+
+[node name="Number" type="Label" parent="Columns/AmmoContainer/Background/Column"]
+margin_left = 52.0
+margin_right = 100.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "10
+"
