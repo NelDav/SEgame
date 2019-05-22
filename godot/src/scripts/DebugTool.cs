@@ -1,7 +1,5 @@
 ﻿using Godot;
 
-namespace SEProjekt.src.scripts
-{
     /// <summary>
     /// A tool, wich merges all debuging functions
     /// </summary>
@@ -11,7 +9,7 @@ namespace SEProjekt.src.scripts
         /// Get all child nodes of a given node recursively
         /// </summary>
         /// <param name="node">The parent node</param>
-        private void getNodesOf(Node node)
+        public void getNodesOf(Node node)
         {
             foreach (Node subnode in node.GetChildren())
             {
@@ -22,4 +20,3 @@ namespace SEProjekt.src.scripts
             }
         }
     }
-}
