@@ -1,7 +1,9 @@
 using Godot;
 using System;
 
-
+/// <summary>
+/// Abstract RangedWeapon class, defining and implementing functios applying to every ranged weapon
+/// </summary>
 abstract public class RangedWeapon : Weapon
 {
 
@@ -34,9 +36,13 @@ abstract public class RangedWeapon : Weapon
 
         // get angle of mouse to weapon, to flip sprite vertically
         if (angleRad > -1.5 && angleRad < 1.5)
+        {
             setFlip(false);
+        }
         else
+        {
             setFlip(true);
+        }
 
         // rotate weapon
         SetGlobalRotation(angleRad);

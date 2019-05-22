@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/// <summary>
+/// StandardWeapon class, implementing functios of ranged weapon and weapon
+/// </summary>
 public class StandardWeapon: RangedWeapon
 {
     [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
@@ -29,7 +32,9 @@ public class StandardWeapon: RangedWeapon
     public override void setFlip(bool flip)
     {
         if (sprite == null)
+        {
             return;
+        }
         sprite.SetFlipV(flip);
     }
 }
