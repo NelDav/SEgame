@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +20,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <DocumentationFile>mono\temp\bin\Debug\SEProjekt.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>portable</DebugType>
@@ -56,18 +57,22 @@
     <Compile Include="src\scripts\menus\OptionsMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartMenuButtons.cs" />
+    <Compile Include="src\scripts\OverlayScene.cs" />
+    <Compile Include="src\scripts\Player.cs" />
+    <Compile Include="src\scripts\PlayerCamera.cs" />
+    <Compile Include="src\scripts\util\CameraPerspective.cs" />
+    <Compile Include="src\scripts\Root.cs" />
+    <Compile Include="src\scripts\util\CollisionLayers.cs" />
     <Compile Include="src\scripts\RangedWeapon.cs" />
     <Compile Include="src\scripts\StandardWeapon.cs" />
     <Compile Include="src\scripts\Weapon.cs" />
-    <Compile Include="src\scripts\Player.cs" />
-    <Compile Include="src\scripts\PlayerCamera.cs" />
-    <Compile Include="src\scripts\Root.cs" />
-    <Compile Include="src\scripts\util\CollisionLayers.cs" />
-    <Compile Include="src\scripts\util\CameraPerspective.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\scenes\bullets\" />
     <Folder Include="src\scenes\maps\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
