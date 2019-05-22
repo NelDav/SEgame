@@ -12,9 +12,14 @@ radius = 40.05
 
 [node name="root" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="MapScene" parent="." instance=ExtResource( 1 )]
 
-[node name="OverlayScene" parent="." instance=ExtResource( 2 )]
+[node name="OverlayScene" parent="CanvasLayer" instance=ExtResource( 2 )]
+anchor_right = 1.0
+margin_right = 120.0
+margin_bottom = 60.0
 
 [node name="Player" type="RigidBody2D" parent="."]
 position = Vector2( 146, 67 )
