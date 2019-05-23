@@ -71,8 +71,5 @@
     <Folder Include="src\scenes\bullets\" />
     <Folder Include="src\scenes\maps\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
