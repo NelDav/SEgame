@@ -5,6 +5,8 @@
 [node name="StartMenuScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 6.3158
+margin_right = 6.3158
 
 [node name="StartMenuButtons" type="VBoxContainer" parent="."]
 margin_left = 281.294
