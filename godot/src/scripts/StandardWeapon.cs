@@ -15,8 +15,6 @@ public class StandardWeapon: RangedWeapon
     {
         base._Ready();
         sprite = (Godot.Sprite)GetNode("StandardWeaponTexture");
-        DebugTool tool = new DebugTool();
-        tool.getNodesOf(GetTree().GetRoot().GetNode("root"));
     }
 
     public override void shootBullet(Vector2 position, float rotation)
