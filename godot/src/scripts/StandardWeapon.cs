@@ -7,7 +7,7 @@ using System;
 public class StandardWeapon: RangedWeapon
 {
     [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
-    private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardtBullet.tscn") as PackedScene;
+    private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardBullet.tscn") as PackedScene;
 
     Sprite sprite;
 
@@ -15,8 +15,6 @@ public class StandardWeapon: RangedWeapon
     {
         base._Ready();
         sprite = (Godot.Sprite)GetNode("StandardWeaponTexture");
-        DebugTool tool = new DebugTool();
-        tool.getNodesOf(GetTree().GetRoot().GetNode("root"));
     }
 
     public override void shootBullet(Vector2 position, float rotation)

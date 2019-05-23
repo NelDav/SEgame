@@ -59,3 +59,4 @@ ExtentsPath = "root/MapScene/Extents"
 
 [node name="StandardWeapon" parent="Player" instance=ExtResource( 7 )]
 position = Vector2( 0, 7.56302 )
+

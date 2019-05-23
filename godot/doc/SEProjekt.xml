@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SEProjekt</name>
+    </assembly>
+    <members>
+        <member name="T:Bullet">
+            <summary>
+            The base class of all bullets
+            </summary>
+        </member>
+        <member name="M:Bullet._Ready">
+            <summary>
+            Called when the node enters the scene tree for the first time.
+            </summary>
+        </member>
+        <member name="M:Bullet.onCollision(Godot.Node)">
+            <summary>
+            Detects, if the bullet collide with something
+            </summary>
+            <param name="body"> The node, wich collides </param>
+            <returns> If the bullet collides with a player, the name of that player else an empty string</returns>
+        </member>
+        <member name="M:Bullet.collisionAnimation">
+            <summary>
+            The Animation wich should be shown, if a bullet collide.
+            </summary>
+        </member>
+        <member name="M:Bullet.setShootDirection(System.Single)">
+            <summary>
+            To defines the direction, where the bullet is fired to
+            </summary>
+            <param name="direction"></param>
+        </member>
+        <member name="T:StandardBullet">
+            <summary>
+            The class of bullets that belong to the standard weapon
+            </summary>
+        </member>
+        <member name="M:StandardBullet._Ready">
+            <summary>
+            Called when the node enters the scene tree for the first time.
+            </summary>
+        </member>
+        <member name="M:StandardBullet.collisionAnimation">
+            <summary>
+            The animation, which is played if the bullet collides
+            </summary>
+        </member>
+        <member name="T:DebugTool">
+            <summary>
+            A tool, wich merges all debuging functions
+            </summary>
+        </member>
+        <member name="M:DebugTool.getNodesOf(Godot.Node)">
+            <summary>
+            Get all child nodes of a given node recursively
+            </summary>
+            <param name="node">The parent node</param>
+        </member>
+        <member name="T:OverlayScene">
+            <summary>
+            This class is used to fetch signals from the game (player stats for example). 
+            The received updates / values are used to show in game as an overlay.
+            </summary>
+        </member>
+        <member name="T:Player">
+             This class discripe the player node.
+            
+             It handels the physics of the figure and implement the
+             movemet operations to control the player by keyboard.
+             This class includes also the health points of the figure.
+            
+             @author MichaelR, MariusS
+        </member>
+        <member name="T:PlayerCamera">
+             <summary>
+             A Camera that can switch between a player-following and an overview perspective.
+            
+             For the player-following perspective a Camera2D Node is used.
+             For the overview perspective the extents of the current map have to be defined
+             using the Transform of an empty Node called "Extents".
+             </summary>
+        </member>
+        <member name="M:Root.on_Player_Shoot(Godot.PackedScene,Godot.Vector2,System.Single)">
+            <summary>
+            Handler of the Shoot signal. Creating a bullet.
+            </summary>
+            <param name="bullet">The bullet, wich should be created</param>
+            <param name="location">The possiton, whre the bullet should spawn</param>
+            <param name="direction">The rotation of the bullet</param>
+        </member>
+        <member name="T:RangedWeapon">
+            <summary>
+            Abstract RangedWeapon class, defining and implementing functios applying to every ranged weapon
+            </summary>
+        </member>
+        <member name="T:StandardWeapon">
+            <summary>
+            StandardWeapon class, implementing functios of ranged weapon and weapon
+            </summary>
+        </member>
+        <member name="T:Weapon">
+            <summary>
+            Abstract Weapon Class, implementing and defining functions, applying to every weapon
+            </summary>
+        </member>
+    </members>
+</doc>

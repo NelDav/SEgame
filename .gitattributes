@@ -9,3 +9,4 @@
 *.sln text
 *.csproj text
 *.godot text
+*.xml text

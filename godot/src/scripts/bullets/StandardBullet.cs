@@ -1,9 +1,9 @@
 using Godot;
 
 /// <summary>
-/// The class of bullets that belong to the standardt weapon
+/// The class of bullets that belong to the standard weapon
 /// </summary>
-public class StandardtBullet : Bullet
+public class StandardBullet : Bullet
 {
     private const float absVelocity = 1000;
 
