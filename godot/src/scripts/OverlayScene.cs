@@ -11,6 +11,11 @@ public class OverlayScene : MarginContainer
 
     private Label healthText;
 
+    [Export]
+    public bool showAimLines;
+    [Export]
+    public bool showAimCrosshair;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -30,7 +35,10 @@ public class OverlayScene : MarginContainer
 
     public override void _Draw()
     {
-        AimVisualisation();
+        if (showAimCrosshair || showAimLines)
+        {
+            AimVisualisation();
+        }
     }
 
     private void AimVisualisation()
@@ -45,14 +53,34 @@ public class OverlayScene : MarginContainer
         Vector2 playerPosition = RemoveOffset(player.GetGlobalTransformWithCanvas().origin);
         Vector2 muzzlePosition = playerPosition + (mousePosition - playerPosition).Normalized() * muzzleLengthOffset;
 
-        //Lines
         float range = weaponRange / player.GetLocalMousePosition().Length();
-        Vector2 maxRangePointRelativeToPlayer = (mousePosition - playerPosition) * range + (mousePosition - playerPosition).Normalized() * muzzleLengthOffset;
-        DrawLine(muzzlePosition, playerPosition + maxRangePointRelativeToPlayer, Color.ColorN("black", alpha: 0.75f));
-        DrawLine(muzzlePosition, playerPosition + maxRangePointRelativeToPlayer.Rotated(Mathf.Deg2Rad(weaponPrecision)), Color.ColorN("gray", alpha: 0.5f));
-        DrawLine(muzzlePosition, playerPosition + maxRangePointRelativeToPlayer.Rotated(Mathf.Deg2Rad(-weaponPrecision)), Color.ColorN("gray", alpha: 0.5f));
+        Vector2 maxRangePointRelativeToPlayer = (mousePosition - playerPosition) * range;
+
+        //Lines
+        if (showAimLines)
+        {
+            DrawLine(muzzlePosition, muzzlePosition + maxRangePointRelativeToPlayer,
+                Color.ColorN("black", alpha: 0.75f));
+            DrawLine(muzzlePosition, muzzlePosition + maxRangePointRelativeToPlayer.Rotated(Mathf.Deg2Rad(weaponPrecision)),
+                Color.ColorN("gray", alpha: 0.5f));
+            DrawLine(muzzlePosition, muzzlePosition + maxRangePointRelativeToPlayer.Rotated(Mathf.Deg2Rad(-weaponPrecision)),
+                Color.ColorN("gray", alpha: 0.5f));
+        }
 
         //Crosshair
+        if (showAimCrosshair)
+        {
+            Color crosshairColor = Color.ColorN("white");
+            if (maxRangePointRelativeToPlayer.Length() + muzzleLengthOffset < (mousePosition - playerPosition).Length())
+            {
+                crosshairColor = Color.ColorN("gray");
+            }
+            float precision = Mathf.Sin(Mathf.Deg2Rad(weaponPrecision)) * (mousePosition - muzzlePosition).Length();
+            DrawLine(mousePosition + Vector2.Up * precision, mousePosition + Vector2.Up * (precision + 7), crosshairColor);
+            DrawLine(mousePosition + Vector2.Right * precision, mousePosition + Vector2.Right * (precision + 7), crosshairColor);
+            DrawLine(mousePosition + Vector2.Down * precision, mousePosition + Vector2.Down * (precision + 7), crosshairColor);
+            DrawLine(mousePosition + Vector2.Left * precision, mousePosition + Vector2.Left * (precision + 7), crosshairColor);
+        }
     }
 
     public void onHealthChange(int health)

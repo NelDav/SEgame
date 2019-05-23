@@ -20,6 +20,7 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 margin_right = 120.0
 margin_bottom = 60.0
+showAimCrosshair = true
 
 [node name="MapScene" parent="." instance=ExtResource( 3 )]
 
@@ -59,3 +60,4 @@ ExtentsPath = "root/MapScene/Extents"
 
 [node name="StandardWeapon" parent="Player" instance=ExtResource( 7 )]
 position = Vector2( 0, 7.56302 )
+
