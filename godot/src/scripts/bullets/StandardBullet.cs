@@ -5,8 +5,8 @@ using Godot;
 /// </summary>
 public class StandardBullet : Bullet
 {
-    [Export] private const float absVelocity = 1000;
-    [Export] private const float damage = 10;
+    [Export] private float absVelocity = 1000;
+    [Export] private float damage = 10;
 
     /// <summary>
     /// Called when the node enters the scene tree for the first time.
