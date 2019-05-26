@@ -16,3 +16,6 @@ tile_data = PoolIntArray( -393217, 0, 0, -458706, 0, 0, -327681, 0, 0, -393170, 
 position = Vector2( 1150, 150 )
 scale = Vector2( 2400, 950 )
 
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 203.878, 37.6731 )
+
