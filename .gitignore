@@ -2,6 +2,10 @@
 *.swp
 *.swo
 .fscache
+*.cfg
+
+*.exe
+
 
 .DS_Store
 .DS_Store?
@@ -17,4 +21,5 @@ godot/.vs/*
 godot/.mono/*
 godot/mono/*
 godot/.import/*
+godot/data_SEProjekt/*
 /.vs/*
