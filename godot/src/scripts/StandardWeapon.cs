@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 /// <summary>
 /// StandardWeapon class, implementing functios of ranged weapon and weapon

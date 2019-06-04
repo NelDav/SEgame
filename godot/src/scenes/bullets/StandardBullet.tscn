@@ -2,7 +2,6 @@
 
 [ext_resource path="res://src/scripts/bullets/StandardBullet.cs" type="Script" id=1]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.82615
 height = 19.0575
@@ -12,7 +11,8 @@ flags = 4
 load_path = "res://.import/PlayerTexture.png-e3ed1c4ac72a920b21778c565b998353.stex"
 
 [node name="StandardtBullet" type="RigidBody2D"]
-collision_mask = 7
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="StandardtBulletCollision" type="CollisionShape2D" parent="."]
