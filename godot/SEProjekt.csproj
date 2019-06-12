@@ -55,7 +55,6 @@
     <Compile Include="src\scripts\bullets\StandardBullet.cs" />
     <Compile Include="src\scripts\DebugTool.cs" />
     <Compile Include="src\scripts\HealthKit.cs" />
-    <Compile Include="src\scripts\MapScene.cs" />
     <Compile Include="src\scripts\menus\OptionsMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartMenuButtons.cs" />
