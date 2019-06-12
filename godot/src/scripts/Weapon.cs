@@ -6,6 +6,9 @@ using System;
 /// </summary>
 abstract public class Weapon : Node2D
 {
+    public abstract double AttackSpeed { get; }
+
+
     public RigidBody2D player;
 
     public override void _Ready()

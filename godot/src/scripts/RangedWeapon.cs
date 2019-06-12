@@ -6,6 +6,25 @@ using System;
 /// </summary>
 abstract public class RangedWeapon : Weapon
 {
+    public abstract int MaxAmmunition { get; }
+    public abstract int Precision { get; }
+
+    private int currentAmmunition;
+    public int CurrentAmmunition
+    {
+        get
+        {
+            return currentAmmunition;
+        }
+
+        set
+        {
+            if(value >= 0 && value <= MaxAmmunition)
+            {
+                currentAmmunition = value;
+            }
+        }
+    }
 
     public override void _Input(InputEvent @event)
     {
