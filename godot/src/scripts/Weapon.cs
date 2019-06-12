@@ -6,9 +6,8 @@ using System;
 /// </summary>
 abstract public class Weapon : Node2D
 {
-    [Export] public int damage;
-    [Export] public double attackSpeed;
-    [Export] public int precision;
+    public abstract double AttackSpeed { get; }
+
 
     public RigidBody2D player;
 

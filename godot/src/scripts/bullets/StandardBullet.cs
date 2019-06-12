@@ -6,6 +6,7 @@ using Godot;
 public class StandardBullet : Bullet
 {
     [Export] private float absVelocity = 1000;
+    public override int Damage { get{ return 7;} }
 
     /// <summary>
     /// Called when the node enters the scene tree for the first time.
@@ -17,8 +18,6 @@ public class StandardBullet : Bullet
 
         //call _Ready of the base class, to init non bullet type specific values
         base._Ready();
-
-        damage = 7;
     }
 
     /// <summary>
