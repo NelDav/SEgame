@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/// <summary>
+/// Abstract base class for supply objects. Effects can be implemented in the DoEffect() Method.
+/// </summary>
 public abstract class SupplyObject : Sprite
 {
     [Export]
