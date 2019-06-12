@@ -19,6 +19,10 @@ config/name="SEProjekt"
 run/main_scene="res://src/scenes/menus/StartMenuScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/scenes/Global.tscn"
+
 [input]
 
 game_left={
