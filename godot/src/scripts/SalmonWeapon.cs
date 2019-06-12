@@ -1,9 +1,9 @@
 using Godot;
 
 /// <summary>
-/// StandardWeapon class, implementing functios of ranged weapon and weapon
+/// SalmonWeapon class, implementing functios of ranged weapon and weapon
 /// </summary>
-public class StandardWeapon: RangedWeapon
+public class SalmonWeapon: RangedWeapon
 {
     [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
     private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardBullet.tscn") as PackedScene;
@@ -13,7 +13,7 @@ public class StandardWeapon: RangedWeapon
     public override void _Ready()
     {
         base._Ready();
-        sprite = (Godot.Sprite)GetNode("StandardWeaponTexture");
+        sprite = (Godot.Sprite)GetNode("SalmonWeaponTexture");
     }
 
     public override void shootBullet(Vector2 position, float rotation)

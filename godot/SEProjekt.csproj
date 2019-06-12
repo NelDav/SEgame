@@ -64,7 +64,7 @@
     <Compile Include="src\scripts\Root.cs" />
     <Compile Include="src\scripts\util\CollisionLayers.cs" />
     <Compile Include="src\scripts\RangedWeapon.cs" />
-    <Compile Include="src\scripts\StandardWeapon.cs" />
+    <Compile Include="src\scripts\SalmonWeapon.cs" />
     <Compile Include="src\scripts\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>

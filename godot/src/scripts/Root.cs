@@ -6,7 +6,7 @@ public class Root : Node2D
     public override void _Ready()
     {
         //Connecting the Shoot signal with the on_Player_Shoot handler.
-        GetNode("Player/StandardWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
+        GetNode("Player/SalmonWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
         Position2D spawn = (Position2D) GetNode("MapScene/Spawn");
         RigidBody2D player = (RigidBody2D)GetNode("Player");
         player.SetPosition(spawn.GetGlobalPosition());
