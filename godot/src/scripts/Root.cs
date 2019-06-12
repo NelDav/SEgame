@@ -10,6 +10,12 @@ public class Root : Node2D
         Position2D spawn = (Position2D) GetNode("MapScene/Spawn");
         RigidBody2D player = (RigidBody2D)GetNode("Player");
         player.SetPosition(spawn.GetGlobalPosition());
+
+        // Turn off the Menu Music
+        var global = GetNode("/root/Global");
+        var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
+        menuAudio.Stop();
+
     }
 
     /// <summary>
