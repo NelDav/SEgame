@@ -29,6 +29,7 @@ position = Vector2( 327.833, 164.479 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
 spawnInterval = 3.0
+amount = 10
 
 [node name="Area2D" type="Area2D" parent="iron"]
 collision_layer = 8
