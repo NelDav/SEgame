@@ -12,7 +12,7 @@ public class SalmonWeapon: RangedWeapon
     public override int MaxAmmunition { get{ return 50; } }
 
 
-    private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/StandardBullet.tscn") as PackedScene;
+    private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/SalmonBullet.tscn") as PackedScene;
 
     Sprite sprite;
 

@@ -3,7 +3,7 @@ using Godot;
 /// <summary>
 /// The class of bullets that belong to the standard weapon
 /// </summary>
-public class StandardBullet : Bullet
+public class SalmonBullet : Bullet
 {
     [Export] private float absVelocity = 1000;
     public override int Damage { get{ return 7;} }
