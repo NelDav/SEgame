@@ -6,6 +6,10 @@ using System;
 /// </summary>
 abstract public class Weapon : Node2D
 {
+    [Export] public int damage;
+    [Export] public double attackSpeed;
+    [Export] public int precision;
+
     public RigidBody2D player;
 
     public override void _Ready()

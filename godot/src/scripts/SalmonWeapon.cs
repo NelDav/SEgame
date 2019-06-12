@@ -14,6 +14,11 @@ public class SalmonWeapon: RangedWeapon
     {
         base._Ready();
         sprite = (Godot.Sprite)GetNode("SalmonWeaponTexture");
+
+        maxAmmunition = 50;
+        attackSpeed = 2.3;
+        precision = 3;
+        currentAmmunition =  maxAmmunition;
     }
 
     public override void shootBullet(Vector2 position, float rotation)

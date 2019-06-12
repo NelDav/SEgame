@@ -26,4 +26,3 @@ margin_right = 6.0
 margin_bottom = 12.0
 texture = SubResource( 2 )
 expand = true
-

@@ -5,6 +5,8 @@ using Godot;
 /// </summary>
 abstract public class Bullet : RigidBody2D
 {
+    [Export] public int damage;
+
     /// <summary>
     /// Called when the node enters the scene tree for the first time.
     /// </summary>

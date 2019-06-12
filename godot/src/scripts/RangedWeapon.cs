@@ -6,6 +6,8 @@ using System;
 /// </summary>
 abstract public class RangedWeapon : Weapon
 {
+    [Export] public int maxAmmunition;
+    [Export] public int currentAmmunition;
 
     public override void _Input(InputEvent @event)
     {
