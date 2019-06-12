@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/scenes/blocks/TestMapBlock.res" type="TileSet" id=1]
+[ext_resource path="res://media/textures/iron.png" type="Texture" id=2]
+[ext_resource path="res://src/scripts/HealthKit.cs" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 26.1823, 26.0326 )
 
 [node name="TestMapScene" type="Node2D"]
 
@@ -19,3 +24,17 @@ scale = Vector2( 2400, 950 )
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 203.878, 37.6731 )
 
+[node name="iron" type="Sprite" parent="."]
+position = Vector2( 327.833, 164.479 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+spawnInterval = 3.0
+amount = 10
+
+[node name="Area2D" type="Area2D" parent="iron"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iron/Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="iron/Area2D" to="iron" method="_on_Area2D_body_entered"]
