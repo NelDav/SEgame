@@ -4,24 +4,29 @@ using System;
 /// <summary>
 /// Abstract RangedWeapon class, defining and implementing functios applying to every ranged weapon
 /// </summary>
+/// 
 abstract public class RangedWeapon : Weapon
 {
+    //signals to notify nodes about value changes
+    [Signal]
+    public delegate void AmmunitionChangeSignal(int ammunition);
+
+
     public abstract int MaxAmmunition { get; }
     public abstract int Precision { get; }
 
     private int currentAmmunition;
     public int CurrentAmmunition
     {
-        get
-        {
-            return currentAmmunition;
-        }
+        get => currentAmmunition;
 
         set
         {
             if(value >= 0 && value <= MaxAmmunition)
             {
                 currentAmmunition = value;
+                //sends an signal about
+                EmitSignal(nameof(AmmunitionChangeSignal), CurrentAmmunition);
             }
         }
     }

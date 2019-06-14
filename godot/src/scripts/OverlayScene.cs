@@ -10,6 +10,7 @@ public class OverlayScene : MarginContainer
     private Player player;
 
     private Label healthText;
+    private Label ammunitionText;
 
     [Export]
     public bool showAimLines;
@@ -22,10 +23,14 @@ public class OverlayScene : MarginContainer
         //connecting to the health signal changes of the player
         player = (Player)GetParent().GetParent().GetNode("Player");
         player.Connect("HealthChangeSignal", this, nameof(onHealthChange));
- 
+        player.CurrentWeapon.Connect("AmmunitionChangeSignal", this, nameof(onAmmunitionChange));
+
         //setting up the health value
         healthText = (Label) GetNode("Columns/HealthContainer/Background/Column/Number");
         healthText.SetText("100");
+
+        //setting up the ammunition value
+        ammunitionText = (Label)GetNode("Columns/AmmoContainer/Background/Column/Number");
     }
 
     public override void _Process(float delta)
@@ -86,6 +91,11 @@ public class OverlayScene : MarginContainer
     public void onHealthChange(int health)
     {
         healthText.SetText(health.ToString());
+    }
+
+    public void onAmmunitionChange(int ammunition)
+    {
+        ammunitionText.SetText(ammunition.ToString());
     }
 
     /// <summary>
