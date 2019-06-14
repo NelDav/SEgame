@@ -28,16 +28,19 @@ public class Player : RigidBody2D
 
     // Non physical data
 
-    //health Values: 0-100. Infinity health: -1.
-    private double _health; //this is just a storage variable, use Health instead
+    //health Values: 0-100. Infinity health: double.PositiveInfinety.
+    private double health; //this is just a storage variable, use Health instead
     public double Health
     {
-        get => _health;
+        get => health;
         set
         {
-            _health = value;
-            //sends an signal about
-            EmitSignal(nameof(HealthChangeSignal), Health);
+            if ((value >= 0 && value <= 100) || value == double.PositiveInfinity)
+            {
+                health = value;
+                //sends an signal about
+                EmitSignal(nameof(HealthChangeSignal), Health);
+            }
         }
     }
 
