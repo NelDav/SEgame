@@ -58,7 +58,5 @@ drag_margin_bottom = 0.0
 script = ExtResource( 6 )
 ExtentsPath = "root/MapScene/Extents"
 
-[node name="Weapon" type="Node" parent="Player"]
-
-[node name="SalmonWeapon" parent="Player/Weapon" instance=ExtResource( 7 )]
-position = Vector2( 146, 74.563 )
+[node name="SalmonWeapon" parent="Player" instance=ExtResource( 7 )]
+position = Vector2( 0, 7.563 )

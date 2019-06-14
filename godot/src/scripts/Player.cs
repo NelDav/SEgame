@@ -52,7 +52,7 @@ public class Player : RigidBody2D
     {
         get
         {
-            return GetNode("Weapon").GetChild<Weapon>(0);
+            return GetNode<Weapon>("SalmonWeapon");
         }
     }
 
