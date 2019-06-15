@@ -1,14 +1,15 @@
 using Godot;
 
-/** 
- * This class discripe the player node.
- *
- * It handels the physics of the figure and implement the
- * movemet operations to control the player by keyboard.
- * This class includes also the health points of the figure.
- *
- * @author MichaelR, MariusS
- */
+/// <summary>
+///  This class discripe the player node.
+///
+/// It handels the physics of the figure and implement the
+/// movemet operations to control the player by keyboard.
+/// This class includes also the health points of the figure.
+///
+/// @author MichaelR, MariusS
+/// </summary>
+
 public class Player : RigidBody2D
 {
     [Export] public int maxSpeedRight = 1500;
@@ -25,6 +26,11 @@ public class Player : RigidBody2D
     private Vector2 initPosition;
     private int physicFramesSinceJumpEvent;
     private bool wantToJump;
+
+    //signals to notify nodes about value changes
+    //example: health value changes for OverlayScene
+    [Signal]
+    public delegate void HealthChangeSignal(int health);
 
     // Non physical data
 
@@ -44,10 +50,13 @@ public class Player : RigidBody2D
         }
     }
 
-    //signals to notify nodes about value changes
-    //example: health value changes for OverlayScene
-    [Signal]
-    public delegate void HealthChangeSignal(int health);
+    public Weapon CurrentWeapon
+    {
+        get
+        {
+            return GetNode<Weapon>("SalmonWeapon");
+        }
+    }
 
     public override void _Ready()
     {
