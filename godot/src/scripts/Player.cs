@@ -1,14 +1,14 @@
 using Godot;
+/// <summary>
+///  This class discripe the player node.
+///
+/// It handels the physics of the figure and implement the
+/// movemet operations to control the player by keyboard.
+/// This class includes also the health points of the figure.
+///
+/// @author MichaelR, MariusS, TimoB
+/// </summary>
 
-/** 
- * This class discripe the player node.
- *
- * It handels the physics of the figure and implement the
- * movemet operations to control the player by keyboard.
- * This class includes also the health points of the figure.
- *
- * @author MichaelR, MariusS, TimoB
- */
 public class Player : RigidBody2D
 {
     [Export] public int maxSpeedRight = 1500;
@@ -28,25 +28,36 @@ public class Player : RigidBody2D
     Sprite spriteBelow;
     Sprite spriteAbove;
 
-    // Non physical data
-
-    //health Values: 0-100. Infinity health: -1.
-    private double _health; //this is just a storage variable, use Health instead
-    public double Health
-    {
-        get => _health;
-        set
-        {
-            _health = value;
-            //sends an signal about
-            EmitSignal(nameof(HealthChangeSignal), Health);
-        }
-    }
-
     //signals to notify nodes about value changes
     //example: health value changes for OverlayScene
     [Signal]
     public delegate void HealthChangeSignal(int health);
+
+    // Non physical data
+
+    //health Values: 0-100. Infinity health: double.PositiveInfinety.
+    private double health; //this is just a storage variable, use Health instead
+    public double Health
+    {
+        get => health;
+        set
+        {
+            if ((value >= 0 && value <= 100) || value == double.PositiveInfinity)
+            {
+                health = value;
+                //sends an signal about
+                EmitSignal(nameof(HealthChangeSignal), Health);
+            }
+        }
+    }
+
+    public Weapon CurrentWeapon
+    {
+        get
+        {
+            return GetNode<Weapon>("SalmonWeapon");
+        }
+    }
 
     public override void _Ready()
     {
