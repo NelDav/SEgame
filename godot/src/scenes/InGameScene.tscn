@@ -1,15 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/scripts/Root.cs" type="Script" id=1]
 [ext_resource path="res://src/scenes/OverlayScene.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/scenes/maps/TestMapScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/scripts/Player.cs" type="Script" id=4]
-[ext_resource path="res://media/textures/PlayerTexture.png" type="Texture" id=5]
-[ext_resource path="res://src/scripts/PlayerCamera.cs" type="Script" id=6]
-[ext_resource path="res://src/scenes/weapons/SalmonWeapon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/scripts/PlayerCamera.cs" type="Script" id=5]
+[ext_resource path="res://media/textures/gesicht.png" type="Texture" id=6]
+[ext_resource path="res://media/textures/hut.png" type="Texture" id=7]
+[ext_resource path="res://media/textures/stiefel.png" type="Texture" id=8]
+[ext_resource path="res://media/textures/mantel.png" type="Texture" id=9]
+[ext_resource path="res://src/scenes/weapons/SalmonWeapon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://media/textures/arm.png" type="Texture" id=11]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 40.05
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 36.687
+height = 164.786
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,16 +43,8 @@ forceLeft = 15000
 gravityAccel = 6000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 3.49628, -25.7679 )
 shape = SubResource( 1 )
-
-[node name="TextureRect" type="TextureRect" parent="Player/CollisionShape2D"]
-anchor_right = 1.0
-margin_left = -40.0
-margin_top = -40.0
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 5 )
-expand = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2( 800, 800 )
@@ -55,8 +52,40 @@ drag_margin_left = 0.0
 drag_margin_top = 0.0
 drag_margin_right = 0.0
 drag_margin_bottom = 0.0
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 ExtentsPath = "root/MapScene/Extents"
 
-[node name="SalmonWeapon" parent="Player" instance=ExtResource( 7 )]
-position = Vector2( 0, 7.563 )
+[node name="BelowWeaponSprite" type="Sprite" parent="Player"]
+
+[node name="gesicht" type="Sprite" parent="Player/BelowWeaponSprite"]
+position = Vector2( 14.0331, -105.844 )
+scale = Vector2( 0.159039, 0.15904 )
+texture = ExtResource( 6 )
+
+[node name="hut" type="Sprite" parent="Player/BelowWeaponSprite"]
+position = Vector2( 5.93762, -125.285 )
+scale = Vector2( 0.1091, 0.1091 )
+texture = ExtResource( 7 )
+
+[node name="stiefel" type="Sprite" parent="Player/BelowWeaponSprite"]
+position = Vector2( 1.10999, 63.7288 )
+rotation = -0.0523599
+scale = Vector2( 0.108841, 0.108841 )
+texture = ExtResource( 8 )
+
+[node name="mantel" type="Sprite" parent="Player/BelowWeaponSprite"]
+position = Vector2( 1.04846, -15.8321 )
+scale = Vector2( 0.164384, 0.169385 )
+texture = ExtResource( 9 )
+
+[node name="SalmonWeapon" parent="Player" instance=ExtResource( 10 )]
+position = Vector2( 0.0997162, 0.270241 )
+
+[node name="AboveWeaponSprite" type="Sprite" parent="Player"]
+
+[node name="arm" type="Sprite" parent="Player/AboveWeaponSprite"]
+position = Vector2( 5.58124, -24.6198 )
+rotation = 0.610865
+scale = Vector2( 0.226782, 0.226782 )
+texture = ExtResource( 11 )
+
