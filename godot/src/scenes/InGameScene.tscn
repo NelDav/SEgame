@@ -12,8 +12,9 @@
 [ext_resource path="res://src/scenes/weapons/SalmonWeapon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://media/textures/arm.png" type="Texture" id=11]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 40.05
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 36.687
+height = 164.786
 
 [node name="root" type="Node2D"]
 script = ExtResource( 1 )
@@ -87,3 +88,4 @@ position = Vector2( 5.58124, -24.6198 )
 rotation = 0.610865
 scale = Vector2( 0.226782, 0.226782 )
 texture = ExtResource( 11 )
+
