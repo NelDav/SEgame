@@ -7,7 +7,7 @@ using Godot;
  * movemet operations to control the player by keyboard.
  * This class includes also the health points of the figure.
  *
- * @author MichaelR, MariusS
+ * @author MichaelR, MariusS, TimoB
  */
 public class Player : RigidBody2D
 {
@@ -25,6 +25,8 @@ public class Player : RigidBody2D
     private Vector2 initPosition;
     private int physicFramesSinceJumpEvent;
     private bool wantToJump;
+    Sprite spriteBelow;
+    Sprite spriteAbove;
 
     // Non physical data
 
@@ -51,6 +53,10 @@ public class Player : RigidBody2D
         initPosition = Position;
         //initializing health value
         Health = 100;
+
+        // initialize sprites, to flip later
+        spriteBelow = (Sprite)GetNode("BelowWeaponSprite");
+        spriteAbove = (Sprite)GetNode("AboveWeaponSprite");
     }
 
     public override void _IntegrateForces(Physics2DDirectBodyState state)
@@ -75,6 +81,21 @@ public class Player : RigidBody2D
         finalVel = addJumpEventToVelocity(state, finalVel, floorWallInt);
 
         state.SetLinearVelocity(finalVel);
+    }
+    public override void _PhysicsProcess(float delta)
+    {
+        base._PhysicsProcess(delta);
+        float angleRad = GetGlobalMousePosition().AngleToPoint(GetGlobalPosition());
+
+        // get angle of mouse to player, to flip sprites horizontally
+        if (angleRad > -1.5 && angleRad < 1.5)
+        {
+            flipSpritesHorizontally(false);
+        }
+        else
+        {
+            flipSpritesHorizontally(true);
+        }
     }
 
     private Vector2 addLeftRightMovementToStateVelocity(Physics2DDirectBodyState state, int floorWallInt)
@@ -204,6 +225,20 @@ public class Player : RigidBody2D
         {
             Health = 0;
             // Player is dead.
+        }
+    }
+
+    private void flipSpritesHorizontally(bool flip)
+    {
+        if (flip)
+        {
+            spriteBelow.SetScale(new Vector2(-1, 1));
+            spriteAbove.SetScale(new Vector2(-1, 1));
+        }
+        else
+        {
+            spriteBelow.SetScale(new Vector2(1, 1));
+            spriteAbove.SetScale(new Vector2(1, 1));
         }
     }
 }
