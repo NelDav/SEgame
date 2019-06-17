@@ -8,6 +8,7 @@ gravity_scale = 0.0
 script = ExtResource( 1 )
 
 [node name="SalmonWeaponTexture" type="Sprite" parent="."]
-position = Vector2( 0.227371, 9.55772 )
+position = Vector2( -0.648117, -0.0726967 )
 scale = Vector2( 0.104271, 0.104271 )
 texture = ExtResource( 2 )
+
