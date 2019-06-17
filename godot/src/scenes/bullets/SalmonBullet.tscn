@@ -1,14 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/scripts/bullets/SalmonBullet.cs" type="Script" id=1]
+[ext_resource path="res://media/textures/bubble.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.82615
-height = 19.0575
-
-[sub_resource type="StreamTexture" id=2]
-flags = 4
-load_path = "res://.import/PlayerTexture.png-e3ed1c4ac72a920b21778c565b998353.stex"
+radius = 11.8631
+height = 1.61658
 
 [node name="SalmonBullet" type="RigidBody2D"]
 collision_layer = 0
@@ -19,10 +16,9 @@ script = ExtResource( 1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="SalmonBulletTexture" type="TextureRect" parent="SalmonBulletCollision"]
-margin_left = -6.0
-margin_top = -12.0
-margin_right = 6.0
-margin_bottom = 12.0
-texture = SubResource( 2 )
-expand = true
+[node name="bubble" type="Sprite" parent="SalmonBulletCollision"]
+position = Vector2( -0.00137329, -0.00137734 )
+rotation = -1.5708
+scale = Vector2( 0.03, 0.03 )
+texture = ExtResource( 2 )
+
