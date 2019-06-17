@@ -7,6 +7,7 @@ public class Root : Node2D
     {
         //Connecting the Shoot signal with the on_Player_Shoot handler.
         GetNode("Player/SalmonWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
+        GetNode("WeaponSpawn").Connect("spawnWeapon", this, nameof(on_weapon_spawned));
         Position2D spawn = (Position2D) GetNode("MapScene/Spawn");
         RigidBody2D player = (RigidBody2D)GetNode("Player");
         player.SetPosition(spawn.GetGlobalPosition());
@@ -15,8 +16,7 @@ public class Root : Node2D
         var global = GetNode("/root/Global");
         var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
         menuAudio.Stop();
-
-    }
+}
 
     /// <summary>
     /// Handler of the Shoot signal. Creating a bullet.
@@ -32,4 +32,15 @@ public class Root : Node2D
         bulletInstance.setShootDirection(direction);
         AddChild(bulletInstance);
     }
+
+    public void on_weapon_spawned(PackedScene weapon, Vector2 location)
+    {
+        GD.Print("Spawning...");
+        Godot.RigidBody2D weaponInstance = weapon.Instance() as Godot.RigidBody2D;
+        AddChild(weaponInstance);
+        weaponInstance.SetPosition(location);
+
+    }
 }
+
+
