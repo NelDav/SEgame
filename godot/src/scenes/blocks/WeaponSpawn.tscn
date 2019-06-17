@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://media/textures/testSpawnPoint.png" type="Texture" id=1]
+
+[node name="WeaponSpawn" type="Position2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.836243, 15.6795 )
+scale = Vector2( 0.983275, 0.485918 )
+texture = ExtResource( 1 )
+
