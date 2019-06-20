@@ -54,6 +54,7 @@
     <Compile Include="src\scripts\Bullet.cs" />
     <Compile Include="src\scripts\bullets\SalmonBullet.cs" />
     <Compile Include="src\scripts\DebugTool.cs" />
+    <Compile Include="src\scripts\Global.cs" />
     <Compile Include="src\scripts\HealthKit.cs" />
     <Compile Include="src\scripts\menus\OptionsMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />

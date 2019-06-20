@@ -6,6 +6,22 @@ using Godot;
 
 public class OptionsMenuButtons : VBoxContainer
 {
+    Node global;
+    AudioStreamPlayer menuAudio;
+
+    public override void _Ready()
+    {
+        global = GetNode("/root/Global");
+        menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
+
+        if(!menuAudio.IsPlaying())
+        {
+            CheckButton toggleButton = (CheckButton)GetNode("/root/OptionsMenuScene/OptionsMenuButtons/menuMusic");
+            GD.Print(toggleButton + toggleButton.Name);
+            toggleButton.Pressed = false;
+        }
+    }
+
     private void _on_toStartMenu_pressed()
     {
         GD.Print("Back to da roots ma friend; aka to StartMenu");
@@ -17,15 +33,11 @@ public class OptionsMenuButtons : VBoxContainer
         if(button_pressed)
         {
             // Turn off the Menu Music
-            var global = GetNode("/root/Global");
-            var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
             menuAudio.Play();
         }
         else
         {
             // Turn off the Menu Music
-            var global = GetNode("/root/Global");
-            var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
             menuAudio.Stop();
         }
 
