@@ -11,4 +11,14 @@ public class OptionsMenuButtons : VBoxContainer
         GD.Print("Back to da roots ma friend; aka to StartMenu");
         GetTree().ChangeScene("res://src/scenes/menus/StartMenuScene.tscn");
     }
+
+    private void _on_menueMusic_toggled(bool button_pressed)
+    {
+        // Turn off the Menu Music
+        var global = GetNode("/root/Global");
+        var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
+        menuAudio.Stop();
+
+        GD.Print("Toggled menue music");
+    }
 }
