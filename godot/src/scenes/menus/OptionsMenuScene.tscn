@@ -17,7 +17,7 @@ script = ExtResource( 1 )
 margin_right = 371.0
 margin_bottom = 40.0
 pressed = true
-text = "Menue Music"
+text = "Menu Music"
 
 [node name="toStartMenu" type="Button" parent="OptionsMenuButtons"]
 margin_top = 44.0

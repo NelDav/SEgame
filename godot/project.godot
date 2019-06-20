@@ -19,6 +19,10 @@ config/name="SEProjekt"
 run/main_scene="res://src/scenes/menus/StartMenuScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/scenes/Global.tscn"
+
 [input]
 
 game_left={
@@ -61,6 +65,7 @@ game_switch_camera={
 2d_physics/layer_1="player"
 2d_physics/layer_2="floorWall"
 2d_physics/layer_3="bullet"
+2d_physics/layer_4="supplyObject"
 
 [physics]
 

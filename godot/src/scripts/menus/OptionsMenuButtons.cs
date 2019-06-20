@@ -14,10 +14,20 @@ public class OptionsMenuButtons : VBoxContainer
 
     private void _on_menueMusic_toggled(bool button_pressed)
     {
-        // Turn off the Menu Music
-        var global = GetNode("/root/Global");
-        var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
-        menuAudio.Stop();
+        if(button_pressed)
+        {
+            // Turn off the Menu Music
+            var global = GetNode("/root/Global");
+            var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
+            menuAudio.Play();
+        }
+        else
+        {
+            // Turn off the Menu Music
+            var global = GetNode("/root/Global");
+            var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
+            menuAudio.Stop();
+        }
 
         GD.Print("Toggled menue music");
     }
