@@ -69,6 +69,7 @@
     <Compile Include="src\scripts\RangedWeapon.cs" />
     <Compile Include="src\scripts\SalmonWeapon.cs" />
     <Compile Include="src\scripts\Weapon.cs" />
+    <Compile Include="src\scripts\menus\CenteredVBoxContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\scenes\bullets\" />

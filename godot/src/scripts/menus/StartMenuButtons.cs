@@ -4,7 +4,7 @@ using Godot;
 // This class contains the user interface for the Start Menu.
 // It holds buttons to navigate between Menus as well as a button to quit the game. 
 
-public class StartMenuButtons : VBoxContainer
+public class StartMenuButtons : CenteredVBoxContainer
 {
     [Export] NodePath quitDialog;
     private ConfirmationDialog myQuitDialog;
@@ -39,10 +39,5 @@ public class StartMenuButtons : VBoxContainer
     {
         GD.Print("Quit!");
         GetTree().Quit();
-    }
-
-    private void _on_StartMenuScene_resized()
-    {
-        this.RectPosition = (OS.GetWindowSize() - this.RectSize) / 2;
     }
 }

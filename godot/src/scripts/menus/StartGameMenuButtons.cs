@@ -4,7 +4,7 @@ using Godot;
 // This class contains the user interface for the Start Game Menu.
 // It holds buttons to navigate between Menus
 
-public class StartGameMenuButtons : VBoxContainer
+public class StartGameMenuButtons : CenteredVBoxContainer
 {
     public override void _Ready()
     {
@@ -21,10 +21,5 @@ public class StartGameMenuButtons : VBoxContainer
     {
         GD.Print("Start Game!");
         GetTree().ChangeScene("res://src/scenes/InGameScene.tscn");
-    }
-
-    private void _on_StartGameMenuScene_resized()
-    {
-        this.RectPosition = (OS.WindowSize - this.RectSize) / 2;
     }
 }
