@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scenes/blocks/TestMapBlock.res" type="TileSet" id=1]
 [ext_resource path="res://media/textures/iron.png" type="Texture" id=2]
-[ext_resource path="res://src/scripts/HealthKit.cs" type="Script" id=3]
+[ext_resource path="res://src/scripts/supplyobjects/HealthKit.cs" type="Script" id=3]
+[ext_resource path="res://src/scripts/supplyobjects/AmmunitionKit.cs" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.1823, 26.0326 )
@@ -28,8 +29,8 @@ position = Vector2( 203.878, 37.6731 )
 position = Vector2( 327.833, 164.479 )
 texture = ExtResource( 2 )
 script = ExtResource( 3 )
-spawnInterval = 3.0
-amount = 10
+spawnInterval = 10.0
+amount = 20
 
 [node name="Area2D" type="Area2D" parent="iron"]
 collision_layer = 8
@@ -37,4 +38,17 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="iron/Area2D"]
 shape = SubResource( 1 )
 
+[node name="iron2" type="Sprite" parent="."]
+position = Vector2( 1160.67, 516.096 )
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
+spawnInterval = 10.0
+amount = 20
+
+[node name="Area2D" type="Area2D" parent="iron2"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="iron2/Area2D"]
+shape = SubResource( 1 )
 [connection signal="body_entered" from="iron/Area2D" to="iron" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="iron2/Area2D" to="iron2" method="_on_Area2D_body_entered"]
