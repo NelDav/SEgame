@@ -13,7 +13,7 @@ public class StartMenuButtons : VBoxContainer
     public override void _Ready()
     {
         myQuitDialog = GetNode(quitDialog) as ConfirmationDialog;
-        
+
     }
 
     private void _on_StartGame_pressed()
@@ -39,5 +39,10 @@ public class StartMenuButtons : VBoxContainer
     {
         GD.Print("Quit!");
         GetTree().Quit();
+    }
+
+    private void _on_StartMenuScene_resized()
+    {
+        this.RectPosition = (OS.GetWindowSize() - this.RectSize) / 2;
     }
 }
