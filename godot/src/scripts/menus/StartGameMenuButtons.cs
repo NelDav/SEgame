@@ -22,4 +22,9 @@ public class StartGameMenuButtons : VBoxContainer
         GD.Print("Start Game!");
         GetTree().ChangeScene("res://src/scenes/InGameScene.tscn");
     }
+
+    private void _on_StartGameMenuScene_resized()
+    {
+        this.RectPosition = (OS.WindowSize - this.RectSize) / 2;
+    }
 }
