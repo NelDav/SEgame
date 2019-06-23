@@ -50,6 +50,7 @@ margin_top = 50.0
 margin_right = 250.0
 margin_bottom = 100.0
 text = "Start Menu"
+
 [connection signal="pressed" from="StartMenuButtons/StartGame" to="StartMenuButtons" method="_on_StartGame_pressed"]
 [connection signal="pressed" from="StartMenuButtons/Options" to="StartMenuButtons" method="_on_Options_pressed"]
 [connection signal="pressed" from="StartMenuButtons/Quit" to="StartMenuButtons" method="_on_Quit_pressed"]
