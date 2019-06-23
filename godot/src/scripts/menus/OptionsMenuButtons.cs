@@ -11,4 +11,9 @@ public class OptionsMenuButtons : VBoxContainer
         GD.Print("Back to da roots ma friend; aka to StartMenu");
         GetTree().ChangeScene("res://src/scenes/menus/StartMenuScene.tscn");
     }
+
+    private void _on_OptionsMenuScene_resized()
+    {
+        this.RectPosition = (OS.WindowSize - this.RectSize) / 2;
+    }
 }
