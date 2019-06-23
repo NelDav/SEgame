@@ -27,7 +27,7 @@ abstract public class Bullet : RigidBody2D
     /// </summary>
     /// <param name="body"> The node, wich collides </param>
     /// <returns> If the bullet collides with a player, the name of that player else an empty string</returns>
-    private string onCollision(Node body)
+    private Player onCollision(Node body)
     {
         //creates the collision animation;
         collisionAnimation();
@@ -36,12 +36,14 @@ abstract public class Bullet : RigidBody2D
         GetParent().RemoveChild(this);
 
         //Return the players name, if the bullet collide with a player.
-        if (false)
+        if (body is Player)
         {
-
+            Player player = (Player)body;
+            player.Health -= Damage;
+            return player;
         }
 
-        return "";
+        return null;
     }
 
 
