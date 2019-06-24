@@ -22,4 +22,5 @@ godot/.mono/*
 godot/mono/*
 godot/.import/*
 godot/data_SEProjekt/*
+godot/obj/*
 /.vs/*
