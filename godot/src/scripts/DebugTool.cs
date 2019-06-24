@@ -9,14 +9,14 @@
         /// Get all child nodes of a given node recursively
         /// </summary>
         /// <param name="node">The parent node</param>
-        public void getNodesOf(Node node)
+        /// <param name="stage">Is printed infront of each line</param>
+        public void getNodesOf(Node node, string stage = "")
         {
             foreach (Node subnode in node.GetChildren())
             {
-                GD.Print(subnode);
-                GD.Print(subnode.Name);
+                GD.Print(stage + subnode + " | " + subnode.Name + " | " + subnode.GetPath());
 
-                getNodesOf(subnode);
+                getNodesOf(subnode, stage + "-");
             }
         }
     }

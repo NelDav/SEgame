@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://media/audio/main_menu_rise-and-fall_lukas_wolf.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/scripts/Global.cs" type="Script" id=1]
+[ext_resource path="res://media/audio/main_menu_rise-and-fall_lukas_wolf.ogg" type="AudioStream" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 
 [node name="MenuAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 2 )
 

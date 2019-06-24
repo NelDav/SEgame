@@ -25,12 +25,14 @@ public class SalmonWeapon: RangedWeapon
     }
 
     public override void shootBullet(Vector2 position, float rotation)
-    {   
-        if(CurrentAmmunition > 0)
+    {
+        if (CurrentAmmunition > 0)
         {
             EmitSignal(nameof(shoot), bulletscene, position, rotation);
             CurrentAmmunition--;
+            this.SetVisible(true);
         }
+        else this.SetVisible(false);
     }
 
     public override void _PhysicsProcess(float delta)
