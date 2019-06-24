@@ -13,7 +13,14 @@ margin_right = 716.896
 margin_bottom = 345.016
 script = ExtResource( 1 )
 
+[node name="menuMusic" type="CheckButton" parent="OptionsMenuButtons"]
+margin_right = 371.0
+margin_bottom = 40.0
+pressed = true
+text = "Menu Music"
+
 [node name="toStartMenu" type="Button" parent="OptionsMenuButtons"]
+margin_top = 44.0
 margin_right = 371.0
 margin_bottom = 146.0
 hint_tooltip = "back to Start Menu"
@@ -27,4 +34,5 @@ margin_right = 250.0
 margin_bottom = 100.0
 text = "Options Menu"
 [connection signal="resized" from="." to="OptionsMenuButtons" method="_on_Container_resized"]
+[connection signal="toggled" from="OptionsMenuButtons/menuMusic" to="OptionsMenuButtons" method="_on_menueMusic_toggled"]
 [connection signal="pressed" from="OptionsMenuButtons/toStartMenu" to="OptionsMenuButtons" method="_on_toStartMenu_pressed"]

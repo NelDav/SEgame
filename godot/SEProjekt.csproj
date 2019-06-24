@@ -54,11 +54,11 @@
     <Compile Include="src\scripts\Bullet.cs" />
     <Compile Include="src\scripts\bullets\SalmonBullet.cs" />
     <Compile Include="src\scripts\DebugTool.cs" />
+    <Compile Include="src\scripts\Global.cs" />
     <Compile Include="src\scripts\HealthKit.cs" />
     <Compile Include="src\scripts\menus\OptionsMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartGameMenuButtons.cs" />
     <Compile Include="src\scripts\menus\StartMenuButtons.cs" />
-    <Compile Include="src\scripts\menus\StartMenuScene.cs" />
     <Compile Include="src\scripts\OverlayScene.cs" />
     <Compile Include="src\scripts\Player.cs" />
     <Compile Include="src\scripts\PlayerCamera.cs" />
