@@ -22,12 +22,21 @@ abstract public class RangedWeapon : Weapon
 
         set
         {
-            if(value >= 0 && value <= MaxAmmunition)
+            if(value < 0)
+            {
+                currentAmmunition = 0;
+            }
+            else if(value > MaxAmmunition)
+            {
+                currentAmmunition = MaxAmmunition;
+            }
+            else
             {
                 currentAmmunition = value;
-                //sends an signal about
-                EmitSignal(nameof(AmmunitionChangeSignal), CurrentAmmunition);
             }
+
+            //sends an signal about
+            EmitSignal(nameof(AmmunitionChangeSignal), CurrentAmmunition);
         }
     }
 
