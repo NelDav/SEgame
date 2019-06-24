@@ -33,5 +33,6 @@ margin_top = 50.0
 margin_right = 250.0
 margin_bottom = 100.0
 text = "Options Menu"
+[connection signal="resized" from="." to="OptionsMenuButtons" method="_on_Container_resized"]
 [connection signal="toggled" from="OptionsMenuButtons/menuMusic" to="OptionsMenuButtons" method="_on_menueMusic_toggled"]
 [connection signal="pressed" from="OptionsMenuButtons/toStartMenu" to="OptionsMenuButtons" method="_on_toStartMenu_pressed"]

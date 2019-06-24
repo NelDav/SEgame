@@ -4,7 +4,7 @@ using Godot;
 // This class contains the user interface for the Start Game Menu.
 // It holds buttons to navigate between Menus
 
-public class StartGameMenuButtons : VBoxContainer
+public class StartGameMenuButtons : CenteredVBoxContainer
 {
     public override void _Ready()
     {

@@ -32,5 +32,6 @@ margin_top = 50.0
 margin_right = 250.0
 margin_bottom = 100.0
 text = "Start Game Menu"
+[connection signal="resized" from="." to="StartGameMenuButtons" method="_on_Container_resized"]
 [connection signal="pressed" from="StartGameMenuButtons/toStartMenu" to="StartGameMenuButtons" method="_on_toStartMenu_pressed"]
 [connection signal="pressed" from="StartGameMenuButtons/StartGame" to="StartGameMenuButtons" method="_on_StartGame_pressed"]

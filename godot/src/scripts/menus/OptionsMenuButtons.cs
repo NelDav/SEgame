@@ -4,7 +4,7 @@ using Godot;
 // This class contains the user interface for the Options Menu.
 // It holds buttons to navigate between Menus
 
-public class OptionsMenuButtons : VBoxContainer
+public class OptionsMenuButtons : CenteredVBoxContainer
 {
     Node global;
     AudioStreamPlayer menuAudio;
