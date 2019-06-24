@@ -42,12 +42,21 @@ public class Player : RigidBody2D
         get => health;
         set
         {
-            if ((value >= 0 && value <= 100) || value == double.PositiveInfinity)
+            if(value < 0)
+            {
+                health = 0;
+            }
+            else if(value > 100)
+            {
+                health = 100;
+            }
+            else
             {
                 health = value;
-                //sends an signal about
-                EmitSignal(nameof(HealthChangeSignal), Health);
             }
+
+            //sends an signal about
+            EmitSignal(nameof(HealthChangeSignal), Health);
         }
     }
 
