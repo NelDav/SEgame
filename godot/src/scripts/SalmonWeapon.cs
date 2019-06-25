@@ -5,8 +5,6 @@ using Godot;
 /// </summary>
 public class SalmonWeapon: RangedWeapon
 {
-    [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
-
     public override double AttackSpeed { get{ return 2.3; } }
     public override int Precision { get{ return 3; } }
     public override int MaxAmmunition { get{ return 50; } }
@@ -24,7 +22,7 @@ public class SalmonWeapon: RangedWeapon
     {
         if (CurrentAmmunition > 0)
         {
-            EmitSignal(nameof(shoot), bulletscene, position, rotation);
+            EmitSignal("shoot", bulletscene, position, rotation);
             CurrentAmmunition--;
         }
         else

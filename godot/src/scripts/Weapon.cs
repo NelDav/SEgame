@@ -6,6 +6,9 @@ using System;
 /// </summary>
 abstract public class Weapon : RigidBody2D
 {
+    [Signal] delegate void shoot(PackedScene bullet, Vector2 location, float direction);
+    [Signal] delegate void AmmunitionChangeSignal(int ammunition);
+
     public abstract double AttackSpeed { get; }
 
 
@@ -71,4 +74,6 @@ abstract public class Weapon : RigidBody2D
         GD.Print(GetTree());
         new DebugTool().getNodesOf(GetNode("/root"));
     }
+
+    public abstract void shootBullet(Vector2 position, float rotation);
 }

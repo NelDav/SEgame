@@ -7,11 +7,6 @@ using System;
 /// 
 abstract public class RangedWeapon : Weapon
 {
-    //signals to notify nodes about value changes
-    [Signal]
-    public delegate void AmmunitionChangeSignal(int ammunition);
-
-
     public abstract int MaxAmmunition { get; }
     public abstract int Precision { get; }
 
@@ -36,7 +31,7 @@ abstract public class RangedWeapon : Weapon
             }
 
             //sends an signal about
-            EmitSignal(nameof(AmmunitionChangeSignal), CurrentAmmunition);
+            EmitSignal("AmmunitionChangeSignal", CurrentAmmunition);
         }
     }
 
@@ -59,6 +54,4 @@ abstract public class RangedWeapon : Weapon
             }
         }
     }
-
-    public abstract void shootBullet(Vector2 position, float rotation);
 }

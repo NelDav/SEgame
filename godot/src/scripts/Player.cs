@@ -64,7 +64,8 @@ public class Player : RigidBody2D
     {
         get
         {
-            return GetNode("Weapon");
+            new DebugTool().getNodesOf(this);
+            return (Weapon)GetNode("Weapon");
         }
     }
 
@@ -116,6 +117,17 @@ public class Player : RigidBody2D
         {
             flipSpritesHorizontally(true);
         }
+    }
+
+    public void changeWeapon(Weapon newWeapon)
+    {
+        Weapon weapon = (Weapon)GetNode("Weapon");
+        weapon.Disconnect("shoot", GetParent(), "on_Player_Shoot");
+        weapon.Disconnect("AmmunitionChangeSignal", GetNode("/root/root/CanvasLayer/OverlayScene"), "onAmmunitionChange");
+        newWeapon.SetName("Weapon");
+        weapon.ReplaceBy(newWeapon);
+        newWeapon.Connect("shoot", GetParent(), "on_Player_Shoot");
+        newWeapon.Connect("AmmunitionChangeSignal", GetNode("/root/root/CanvasLayer/OverlayScene"), "onAmmunitionChange");
     }
 
     private Vector2 addLeftRightMovementToStateVelocity(Physics2DDirectBodyState state, int floorWallInt)

@@ -7,19 +7,11 @@ public class Root : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        Node weapon = GetNode("Player/Weapon");
         Position2D spawn = (Position2D)GetNode("MapScene/Spawn");
-        RigidBody2D player = (RigidBody2D)GetNode("Player");
+        Player player = (Player)GetNode("Player");
 
-        //Set SalmonWeapon as start weapon
-        ((InstancePlaceholder)weapon).ReplaceByInstance(salmonWeapon);
-        player.SetPosition(spawn.GetGlobalPosition());
-
-        weapon = GetNode("Player/Weapon");
-        //Connecting the Shoot signal with the on_Player_Shoot handler.
-        weapon.Connect("shoot", this, nameof(on_Player_Shoot));
-
-        new DebugTool().getNodesOf(GetNode("/root/root/Player"));
+        SalmonWeapon weapon = (SalmonWeapon)salmonWeapon.Instance();
+        player.changeWeapon(weapon);
 
         // Turn off the Menu Music
         var global = GetNode("/root/Global");
