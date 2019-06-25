@@ -5,8 +5,8 @@ namespace LayerNames
         public const int player                    = 0x00001;
         public const int floorWall                 = 0x00002;
         public const int bullet                    = 0x00004;
-        public const int layer4                    = 0x00008;
-        public const int layer5                    = 0x00010;
+        public const int supplyObject              = 0x00008;
+        public const int weapon                    = 0x00010;
         public const int layer6                    = 0x00020;
         public const int layer7                    = 0x00040;
         public const int layer8                    = 0x00080;

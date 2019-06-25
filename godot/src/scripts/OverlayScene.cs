@@ -21,9 +21,12 @@ public class OverlayScene : MarginContainer
     public override void _Ready()
     {
         //connecting to the health signal changes of the player
-        player = (Player)GetParent().GetParent().GetNode("Player");
+        player = (Player) GetNode("/root/root/Player");
         player.Connect("HealthChangeSignal", this, nameof(onHealthChange));
-        player.CurrentWeapon.Connect("AmmunitionChangeSignal", this, nameof(onAmmunitionChange));
+        if(player.CurrentWeapon is Weapon)
+        {
+            player.CurrentWeapon.Connect("AmmunitionChangeSignal", this, nameof(onAmmunitionChange));
+        }
 
         //setting up the health value
         healthText = (Label) GetNode("Columns/HealthContainer/Background/Column/Number");

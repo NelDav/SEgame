@@ -61,23 +61,4 @@ abstract public class RangedWeapon : Weapon
     }
 
     public abstract void shootBullet(Vector2 position, float rotation);
-
-    public override void _PhysicsProcess(float delta)
-    {
-        base._PhysicsProcess(delta);
-        float angleRad = GetGlobalMousePosition().AngleToPoint(GetGlobalPosition());
-
-        // get angle of mouse to weapon, to flip sprite vertically
-        if (angleRad > -1.5 && angleRad < 1.5)
-        {
-            setFlip(false);
-        }
-        else
-        {
-            setFlip(true);
-        }
-
-        // rotate weapon
-        SetGlobalRotation(angleRad);
-    }
 }

@@ -32,17 +32,17 @@
             </summary>
             <param name="direction"></param>
         </member>
-        <member name="T:StandardBullet">
+        <member name="T:SalmonBullet">
             <summary>
             The class of bullets that belong to the standard weapon
             </summary>
         </member>
-        <member name="M:StandardBullet._Ready">
+        <member name="M:SalmonBullet._Ready">
             <summary>
             Called when the node enters the scene tree for the first time.
             </summary>
         </member>
-        <member name="M:StandardBullet.collisionAnimation">
+        <member name="M:SalmonBullet.collisionAnimation">
             <summary>
             The animation, which is played if the bullet collides
             </summary>
@@ -52,11 +52,12 @@
             A tool, wich merges all debuging functions
             </summary>
         </member>
-        <member name="M:DebugTool.getNodesOf(Godot.Node)">
+        <member name="M:DebugTool.getNodesOf(Godot.Node,System.String)">
             <summary>
             Get all child nodes of a given node recursively
             </summary>
             <param name="node">The parent node</param>
+            <param name="stage">Is printed infront of each line</param>
         </member>
         <member name="T:OverlayScene">
             <summary>
@@ -64,14 +65,29 @@
             The received updates / values are used to show in game as an overlay.
             </summary>
         </member>
+        <member name="M:OverlayScene.RemoveOffset(Godot.Vector2)">
+            <summary>
+            Returns vectors usable to draw stuff relative to the viewport.
+            <para>
+            The position of this control's rect is set to (20,20).
+            Because of that objects drawn in this node will be offset by that factor
+            when using viewport coordinates to position them.
+            This method removes that offset.
+            </para>
+            </summary>
+            <param name="position">A position in the viewport's coordinate system.</param>
+            <returns>A position in this canvas' coordinate system.</returns>
+        </member>
         <member name="T:Player">
-             This class discripe the player node.
+             <summary>
+              This class discripe the player node.
             
              It handels the physics of the figure and implement the
              movemet operations to control the player by keyboard.
              This class includes also the health points of the figure.
             
-             @author MichaelR, MariusS
+             @author MichaelR, MariusS, TimoB
+             </summary>
         </member>
         <member name="T:PlayerCamera">
              <summary>
@@ -81,6 +97,21 @@
              For the overview perspective the extents of the current map have to be defined
              using the Transform of an empty Node called "Extents".
              </summary>
+        </member>
+        <member name="T:SupplyObject">
+            <summary>
+            Abstract base class for supply objects. Effects can be implemented in the DoEffect() Method.
+            </summary>
+        </member>
+        <member name="T:AmmunitionKit">
+            <summary>
+            Healthkit SupplyObject that restores a variable amount of health to the player.
+            </summary>
+        </member>
+        <member name="T:HealthKit">
+            <summary>
+            Healthkit SupplyObject that restores a variable amount of health to the player.
+            </summary>
         </member>
         <member name="M:Root.on_Player_Shoot(Godot.PackedScene,Godot.Vector2,System.Single)">
             <summary>
@@ -94,6 +125,7 @@
             <summary>
             Abstract RangedWeapon class, defining and implementing functios applying to every ranged weapon
             </summary>
+            
         </member>
         <member name="T:SalmonWeapon">
             <summary>
@@ -103,6 +135,12 @@
         <member name="T:Weapon">
             <summary>
             Abstract Weapon Class, implementing and defining functions, applying to every weapon
+            </summary>
+        </member>
+        <member name="T:CenteredVBoxContainer">
+            <summary>
+            A VBoxContainer, which centers it selfe.
+            For that it is important, that the Signal "resized()" of the container above the VBoxContainer is binded to the "_on_Container_resized" slot.
             </summary>
         </member>
     </members>

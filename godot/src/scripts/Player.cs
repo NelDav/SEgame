@@ -60,11 +60,11 @@ public class Player : RigidBody2D
         }
     }
 
-    public Weapon CurrentWeapon
+    public Node CurrentWeapon
     {
         get
         {
-            return GetNode<Weapon>("SalmonWeapon");
+            return GetNode("Weapon");
         }
     }
 

@@ -2,20 +2,29 @@ using Godot;
 
 public class Root : Node2D
 {
+    private PackedScene salmonWeapon = GD.Load("res://src/scenes/weapons/SalmonWeapon.tscn") as PackedScene;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        //Connecting the Shoot signal with the on_Player_Shoot handler.
-        GetNode("Player/SalmonWeapon").Connect("shoot", this, nameof(on_Player_Shoot));
-        Position2D spawn = (Position2D) GetNode("MapScene/Spawn");
+        Node weapon = GetNode("Player/Weapon");
+        Position2D spawn = (Position2D)GetNode("MapScene/Spawn");
         RigidBody2D player = (RigidBody2D)GetNode("Player");
+
+        //Set SalmonWeapon as start weapon
+        ((InstancePlaceholder)weapon).ReplaceByInstance(salmonWeapon);
         player.SetPosition(spawn.GetGlobalPosition());
+
+        weapon = GetNode("Player/Weapon");
+        //Connecting the Shoot signal with the on_Player_Shoot handler.
+        weapon.Connect("shoot", this, nameof(on_Player_Shoot));
+
+        new DebugTool().getNodesOf(GetNode("/root/root/Player"));
 
         // Turn off the Menu Music
         var global = GetNode("/root/Global");
         var menuAudio = (AudioStreamPlayer)global.GetNode("MenuAudioStreamPlayer");
         menuAudio.Stop();
-
     }
 
     /// <summary>

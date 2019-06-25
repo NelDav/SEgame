@@ -14,13 +14,9 @@ public class SalmonWeapon: RangedWeapon
 
     private PackedScene bulletscene = GD.Load("res://src/scenes/bullets/SalmonBullet.tscn") as PackedScene;
 
-    Sprite sprite;
-
     public override void _Ready()
     {
         base._Ready();
-        sprite = (Godot.Sprite)GetNode("SalmonWeaponTexture");
-
         CurrentAmmunition = MaxAmmunition;
     }
 
@@ -30,22 +26,8 @@ public class SalmonWeapon: RangedWeapon
         {
             EmitSignal(nameof(shoot), bulletscene, position, rotation);
             CurrentAmmunition--;
-            this.SetVisible(true);
         }
-        else this.SetVisible(false);
-    }
-
-    public override void _PhysicsProcess(float delta)
-    {
-        base._PhysicsProcess(delta);
-    }
-
-    public override void setFlip(bool flip)
-    {
-        if (sprite == null)
-        {
-            return;
-        }
-        sprite.SetFlipV(flip);
+        else
+            drop();
     }
 }

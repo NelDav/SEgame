@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/scripts/SalmonWeapon.cs" type="Script" id=1]
-[ext_resource path="res://media/textures/Lachskanone.png" type="Texture" id=2]
+[ext_resource path="res://src/scenes/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scripts/SalmonWeapon.cs" type="Script" id=2]
 
-[node name="SalmonWeapon" type="RigidBody2D"]
-gravity_scale = 0.0
-script = ExtResource( 1 )
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/Lachskanone.png-481628092177e89062f7748ed04f80dd.stex"
 
-[node name="SalmonWeaponTexture" type="Sprite" parent="."]
-position = Vector2( -0.648117, -0.0726967 )
-scale = Vector2( 0.104271, 0.104271 )
-texture = ExtResource( 2 )
+[node name="SalmonWeapon" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
+[node name="CollisionShape" parent="." index="0"]
+rotation = 1.48353
+
+[node name="Sprite" parent="." index="1"]
+rotation = 0.0
+scale = Vector2( 0.104, 0.104 )
+texture = SubResource( 1 )
